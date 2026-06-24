@@ -184,6 +184,32 @@ section{position:relative}
 .footer .fb img{width:26px;height:26px;opacity:.9}
 .footer .fm{font-family:var(--en);color:var(--faint);font-size:.78rem;letter-spacing:.08em}
 
+/* ---------- listen (embeds) ---------- */
+.listen{border-top:1px solid var(--line)}
+.players{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:840px){.players{grid-template-columns:1fr 1fr}}
+.player{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.1rem;transition:border-color .4s var(--ease)}
+.player:hover{border-color:var(--line-2)}
+.pcap{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.1rem .2rem 1rem}
+.pcap .pa{font-family:var(--en);font-weight:700;font-size:.98rem;letter-spacing:.005em;color:var(--txt)}
+.pcap .pr{font-family:var(--en);font-weight:500;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(74,144,217,.4);background:var(--glow);border-radius:999px;padding:.3rem .7rem;white-space:nowrap}
+.player iframe{display:block;width:100%;border:0;border-radius:12px}
+.listen-note{margin-top:2rem;color:var(--faint);font-size:.86rem;letter-spacing:.02em}
+
+/* ---------- youtube embeds ---------- */
+.ytfeature{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-bottom:2.2rem;background:#000}
+.ytfeature iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ytgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:3rem}
+@media(min-width:840px){.ytgrid{grid-template-columns:repeat(4,1fr)}}
+.ytcard{display:block;transition:transform .4s var(--ease)}
+.ytcard:hover{transform:translateY(-4px)}
+.ytcard .thumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+.ytcard .thumb img{width:100%;height:100%;object-fit:cover;opacity:.86;transition:opacity .3s}
+.ytcard:hover .thumb img{opacity:1}
+.ytcard .thumb .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(74,144,217,.92);display:flex;align-items:center;justify-content:center}
+.ytcard .thumb .pl svg{width:16px;height:16px;fill:#fff;margin-left:2px}
+.ytcard .yt-t{margin-top:.8rem;font-size:.85rem;line-height:1.5;color:var(--muted);font-weight:400}
+
 /* reveal */
 .r{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .r.in{opacity:1;transform:none}
@@ -268,32 +294,67 @@ section{position:relative}
         <div class="wn">04</div>
         <div class="wmain">
           <span class="wartist">矢野妃菜喜</span><span class="wtitle">鏡YO鏡 feat. 真山りか</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag">共作：杉山勝彦</span></div>
+          <div class="wmeta"><span class="tag role">作曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2025</span></div>
         </div>
       </div>
       <div class="work r">
         <div class="wn">05</div>
         <div class="wmain">
           <span class="wartist">TORA PROJECT</span><span class="wtitle">SNooZe</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span></div>
+          <div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag year">2025</span></div>
         </div>
       </div>
       <div class="work r">
         <div class="wn">06</div>
         <div class="wmain">
           <span class="wartist">神納セイガ</span><span class="wtitle">Let's Go Party Night！</span>
-          <div class="wmeta"><span class="tag role">編曲</span></div>
+          <div class="wmeta"><span class="tag role">編曲</span><span class="tag year">2023</span></div>
         </div>
       </div>
       <div class="work r">
         <div class="wn">07</div>
         <div class="wmain">
           <span class="wartist">トグルホールディングス</span><span class="wtitle">ゼロイチの前夜</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag">ブランドソング</span></div>
+          <div class="wmeta"><span class="tag role">作曲</span><span class="tag">ブランドソング</span><span class="tag year">2022</span></div>
+        </div>
+      </div>
+      <div class="work r">
+        <div class="wn">08</div>
+        <div class="wmain">
+          <span class="wartist">ArodnaP</span><span class="wtitle">誹謗中傷対策マニュアル</span>
+          <div class="wmeta"><span class="tag role">編曲</span><span class="tag">名義：GHIN</span></div>
         </div>
       </div>
     </div>
     <p class="works-note r">ほか、<b>ソニーミュージック所属アーティスト</b>をはじめとするメジャー作品へ作曲・編曲で参加。所属事務所〈<b>CoWRITE</b>〉代表は、日本レコード大賞 作曲賞・優秀作品賞を受賞した杉山勝彦。</p>
+  </div>
+</section>
+
+<!-- LISTEN -->
+<section class="sec listen" id="listen">
+  <div class="wrap">
+    <div class="sec-head r">
+      <span class="eyebrow">Listen</span>
+      <h2>作品を、聴く。</h2>
+      <p class="lead">作曲・編曲で参加した楽曲を、各プラットフォームでそのまま再生できます。</p>
+    </div>
+    <div class="players">
+      <div class="player r"><div class="pcap"><span class="pa">Hey! Say! JUMP — Tiki Don</span><span class="pr">作曲・編曲</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/1xfc6F0xtrWt5l7vIUY3MN?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">櫻坂46 — 今さらSuddenly</span><span class="pr">作曲・編曲</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/51jGTlFATxIOcpVI2yhr1f?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">ASCA — Stellar</span><span class="pr">作曲・編曲</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/01wMZwVwyansbVRoo1Nf7D?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">矢野妃菜喜 — 鏡YO鏡 feat. 真山りか</span><span class="pr">作曲</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/455hSvAoxGtbDJ35Oa00ou?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">TORA PROJECT — SNooZe</span><span class="pr">作曲・編曲</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/7uj4nWBIomDoClIBOr8CWj?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">トグルHD — ゼロイチの前夜</span><span class="pr">作曲</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/3fMNMkic1ZHHHzfmtgfuLr?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">神納セイガ — Let's Go Party Night！</span><span class="pr">編曲</span></div>
+        <iframe loading="lazy" style="width:100%;border-radius:12px" height="175" src="https://embed.music.apple.com/jp/song/1682007531" allow="autoplay *; encrypted-media *;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"></iframe></div>
+    </div>
+    <p class="listen-note r">※ 神納セイガのみ Apple Music、ほかは Spotify で再生。</p>
   </div>
 </section>
 
@@ -313,6 +374,15 @@ section{position:relative}
       <span class="eyebrow">Channel · @itsGINPEI</span>
       <h2>制作の過程を、<br>そのまま届ける。</h2>
       <p class="lead">ダンスミュージック制作のテクニックと考え方を、現場のままYouTubeで発信。海外のサウンドを志向する制作者へ向けたチュートリアルを軸にしています。</p>
+    </div>
+    <div class="ytfeature r">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/5pRbjcWt2uA" title="9割が誤解：音を重ねても“プロの迫力”は出ない" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="ytgrid r">
+      <a class="ytcard" href="https://www.youtube.com/watch?v=tLiiZBZwtHc" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/tLiiZBZwtHc/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">DTM初心者が持つべき3つの無料プラグイン</div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=yBNkeNyOTpg" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/yBNkeNyOTpg/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">海外EDMの音圧に負けないマスタリング6手順</div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=mCBgKceU18M" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/mCBgKceU18M/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">何時間かけても音が濁り続ける本当の理由</div></a>
+      <a class="ytcard" href="https://www.youtube.com/watch?v=h0SNBi_CkYA" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/h0SNBi_CkYA/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">初心者でもK-Popを簡単に作曲する方法</div></a>
     </div>
     <div class="stats r">
       <div class="stat"><b>29,900+</b><span>Subscribers</span></div>
