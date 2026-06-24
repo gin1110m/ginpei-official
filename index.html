@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>GINPEI — Composer / Arranger / Producer</title>
-<meta name="description" content="作編曲家 GINPEI オフィシャルサイト。東京拠点。Hey! Say! JUMP・櫻坂46・ASCA ほかメジャー作品へ作曲・編曲で参加。ダンス／ポップを軸に世界基準の楽曲を制作。" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="GINPEI — Composer / Arranger / Producer" />
-<meta property="og:description" content="作編曲家 GINPEI オフィシャルサイト。" />
-<meta property="og:image" content="assets/studio-hero.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-<link rel="icon" type="image/png" href="assets/favicon-64.png" />
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&family=Noto+Sans+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet" />
+<meta content="作編曲家 GINPEI オフィシャルサイト。東京拠点。Hey! Say! JUMP・櫻坂46・ASCA ほかメジャー作品へ作曲・編曲で参加。ダンス／ポップを軸に世界基準の楽曲を制作。" name="description"/>
+<meta content="website" property="og:type"/>
+<meta content="GINPEI — Composer / Arranger / Producer" property="og:title"/>
+<meta content="作編曲家 GINPEI オフィシャルサイト。" property="og:description"/>
+<meta content="assets/studio-hero.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="assets/favicon-64.png" rel="icon" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&amp;family=Noto+Sans+JP:wght@200;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
 <style>
 /* ===================================================================
    GINPEI — Official.  Dark luxury × Apple hi-tech, vertical scroll.
@@ -33,7 +34,7 @@
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--txt);font-family:var(--jp);font-weight:300;line-height:1.8;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;letter-spacing:.01em}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 section{position:relative}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
@@ -199,7 +200,9 @@ section{position:relative}
 /* ---------- youtube embeds ---------- */
 .ytfeature{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-bottom:2.2rem;background:#000}
 .ytfeature iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ytcap{font-family:var(--en);font-weight:500;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:-1.2rem 0 1.8rem}
 .ytgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:3rem}
+.ytgrid:empty{display:none}
 @media(min-width:840px){.ytgrid{grid-template-columns:repeat(4,1fr)}}
 .ytcard{display:block;transition:transform .4s var(--ease)}
 .ytcard:hover{transform:translateY(-4px)}
@@ -215,242 +218,227 @@ section{position:relative}
 .r.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}.r{opacity:1!important;transform:none!important;transition:none!important}.cuewrap{display:none}.hero-bg img{transform:none}}
 </style>
-</head>
+<style id="budoux-style">body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict;}</style></head>
 <body>
-<div class="amb" aria-hidden="true"></div>
-<svg class="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
-
+<div aria-hidden="true" class="amb"></div>
+<svg aria-hidden="true" class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feturbulence basefrequency="0.9" numoctaves="2" stitchtiles="stitch" type="fractalNoise"></feturbulence></filter><rect filter="url(#n)" height="100%" width="100%"></rect></svg>
 <nav class="nav" id="nav">
-  <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="24" height="24" /><span>GINPEI</span></a>
-  <div class="nlinks">
-    <a href="#works">Works</a>
-    <a href="#listen">Listen</a>
-    <a href="#channel">Channel</a>
-    <a href="#about">About</a>
-    <a class="cta" href="#connect">Connect</a>
-  </div>
-  <button class="burger" id="burger" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+<a class="brand" href="#top"><img alt="" height="24" src="assets/logo-mark.png" width="24"/><span>GINPEI</span></a>
+<div class="nlinks">
+<a href="#works">Works</a>
+<a href="#listen">Listen</a>
+<a href="#channel">Channel</a>
+<a href="#about">About</a>
+<a class="cta" href="#connect">Connect</a>
+</div>
+<button aria-expanded="false" aria-label="メニュー" class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 <div class="mob" id="mob">
-  <a href="#works">Works</a><a href="#listen">Listen</a><a href="#channel">Channel</a><a href="#about">About</a><a href="#connect">Connect</a>
+<a href="#works">Works</a><a href="#listen">Listen</a><a href="#channel">Channel</a><a href="#about">About</a><a href="#connect">Connect</a>
 </div>
-
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="hero-bg"><img src="assets/studio-hero.jpg" alt="GINPEIのスタジオ" /></div>
-  <div class="wrap hero-inner">
-    <div class="spec r"><span>Composer</span><span class="d"></span><span>Arranger</span><span class="d"></span><span>Producer</span></div>
-    <h1 class="r">GINPEI<span class="dot">.</span></h1>
-    <p class="sub r">東京を拠点に活動する作編曲家。Hey! Say! JUMP、櫻坂46、ASCA をはじめとするメジャー作品へ作曲・編曲で参加。ダンス／ポップを軸に、世界基準の楽曲を制作しています。</p>
-    <div class="hero-cta r">
-      <a class="btn btn-p" href="#listen">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>作品を聴く</a>
-      <a class="btn btn-g" href="#works">実績を見る</a>
-    </div>
-  </div>
-  <div class="cuewrap" aria-hidden="true"><span class="l"></span>Scroll</div>
+<div class="hero-bg"><img alt="GINPEIのスタジオ" src="assets/studio-hero.jpg"/></div>
+<div class="wrap hero-inner">
+<div class="spec r"><span>Composer</span><span class="d"></span><span>Arranger</span><span class="d"></span><span>Producer</span></div>
+<h1 class="r">GINPEI<span class="dot">.</span></h1>
+<p class="sub r">東京を​拠点に​活動する​作編曲家。​Hey! Say! JUMP、​櫻坂46、​ASCA を​はじめと​する​メジャー作品へ作曲・編曲で​参加。​ダンス／ポップを​軸に、​世界基準の​楽曲を​制作しています。</p>
+<div class="hero-cta r">
+<a class="btn btn-p" href="#listen">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>作品を​聴く</a>​
+<a class="btn btn-g" href="#works">実績を​見る</a>​
+</div>
+</div>
+<div aria-hidden="true" class="cuewrap"><span class="l"></span>Scroll</div>
 </header>
-
 <!-- STATEMENT -->
 <section class="statement">
-  <div class="wrap">
-    <p class="r">鳴らした瞬間に、<span class="hl">伝わる音</span>を。
-      <span class="small">クラブのフロアで音を鳴らしていた頃から、向き合っていることは変わらない。大きなスピーカーから流れた一音が、その場の空気を変えるかどうか。世界の第一線と同じ土俵で勝負できる楽曲を、つくり続けています。</span>
-    </p>
-  </div>
+<div class="wrap">
+<p class="r">鳴らした​瞬間に、<span class="hl">​伝わる​音</span>を。​
+      <span class="small">クラブの​フロアで​音を​鳴らしていた​頃から、​向き合っている​ことは​変わらない。​大きな​スピーカーから​流れた​一音が、​その​場の​空気を​変えるか​どうか。​世界の​第一線と​同じ​土俵で​勝負できる​楽曲を、​つくり続けています。</span>​
+</p>
+</div>
 </section>
-
 <!-- WORKS -->
 <section class="sec works" id="works">
-  <div class="wrap">
-    <div class="sec-head r">
-      <span class="eyebrow">Selected Works</span>
-      <h2>これまで携わってきた、<br>メジャー作品。</h2>
-      <p class="lead">作曲・編曲として参加した代表的なクレジット。所属する作家事務所〈CoWRITE〉を通じ、第一線のアーティストへ楽曲を提供しています。</p>
-    </div>
-    <div class="wlist">
-      <div class="work r">
-        <div class="wn">01</div>
-        <div class="wmain">
-          <span class="wartist">Hey! Say! JUMP</span><span class="wtitle">Tiki Don</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">アルバム『PULL UP!』</span><span class="tag year">2023</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">02</div>
-        <div class="wmain">
-          <span class="wartist">櫻坂46</span><span class="wtitle">今さらSuddenly</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">作詞：秋元康</span><span class="tag">『I want tomorrow to come』</span><span class="tag year">2024</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">03</div>
-        <div class="wmain">
-          <span class="wartist">ASCA</span><span class="wtitle">Stellar</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2023</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">04</div>
-        <div class="wmain">
-          <span class="wartist">矢野妃菜喜</span><span class="wtitle">鏡YO鏡 feat. 真山りか</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2025</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">05</div>
-        <div class="wmain">
-          <span class="wartist">TORA PROJECT</span><span class="wtitle">SNooZe</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag year">2025</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">06</div>
-        <div class="wmain">
-          <span class="wartist">神納セイガ</span><span class="wtitle">Let's Go Party Night！</span>
-          <div class="wmeta"><span class="tag role">編曲</span><span class="tag year">2023</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">07</div>
-        <div class="wmain">
-          <span class="wartist">トグルホールディングス</span><span class="wtitle">ゼロイチの前夜</span>
-          <div class="wmeta"><span class="tag role">作曲</span><span class="tag">ブランドソング</span><span class="tag year">2022</span></div>
-        </div>
-      </div>
-      <div class="work r">
-        <div class="wn">08</div>
-        <div class="wmain">
-          <span class="wartist">ArodnaP</span><span class="wtitle">誹謗中傷対策マニュアル</span>
-          <div class="wmeta"><span class="tag role">編曲</span><span class="tag">名義：GHIN</span></div>
-        </div>
-      </div>
-    </div>
-    <p class="works-note r">ほか、<b>ソニーミュージック所属アーティスト</b>をはじめとするメジャー作品へ作曲・編曲で参加。所属事務所〈<b>CoWRITE</b>〉代表は、日本レコード大賞 作曲賞・優秀作品賞を受賞した杉山勝彦。</p>
-  </div>
+<div class="wrap">
+<div class="sec-head r">
+<span class="eyebrow">Selected Works</span>
+<h2>これまで​携わってきた、<br/>メジャー作品。</h2>
+<p class="lead">作曲・編曲と​して​参加した​代表的な​クレジット。​所属する​作家事務所〈CoWRITE〉を​通じ、​第一線の​アーティストへ​楽曲を​提供しています。</p>
+</div>
+<div class="wlist">
+<div class="work r">
+<div class="wn">01</div>
+<div class="wmain">
+<span class="wartist">Hey! Say! JUMP</span><span class="wtitle">Tiki Don</span>
+<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">アルバム『PULL UP!』</span><span class="tag year">2023</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">02</div>
+<div class="wmain">
+<span class="wartist">櫻坂46</span><span class="wtitle">今さら​Suddenly</span>
+<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">作詞：秋​元康</span><span class="tag">『I want tomorrow to come』</span><span class="tag year">2024</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">03</div>
+<div class="wmain">
+<span class="wartist">ASCA</span><span class="wtitle">Stellar</span>
+<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2023</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">04</div>
+<div class="wmain">
+<span class="wartist">矢野妃菜喜</span><span class="wtitle">鏡YO鏡 feat. 真山りか</span>
+<div class="wmeta"><span class="tag role">作曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2025</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">05</div>
+<div class="wmain">
+<span class="wartist">TORA PROJECT</span><span class="wtitle">SNooZe</span>
+<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag year">2025</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">06</div>
+<div class="wmain">
+<span class="wartist">神納セイガ</span><span class="wtitle">Let's Go Party Night！</span>
+<div class="wmeta"><span class="tag role">編曲</span><span class="tag year">2023</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">07</div>
+<div class="wmain">
+<span class="wartist">トグルホールディングス</span><span class="wtitle">ゼロイチの​前夜</span>
+<div class="wmeta"><span class="tag role">作曲</span><span class="tag">ブランドソング</span><span class="tag year">2022</span></div>
+</div>
+</div>
+<div class="work r">
+<div class="wn">08</div>
+<div class="wmain">
+<span class="wartist">ArodnaP</span><span class="wtitle">誹謗中傷対策マニュアル</span>
+<div class="wmeta"><span class="tag role">編曲</span><span class="tag">名義：GHIN</span></div>
+</div>
+</div>
+</div>
+<p class="works-note r">ほか、<b>​ソニーミュージック所属アーティスト</b>を​はじめと​する​メジャー作品へ作曲・編曲で​参加。​所属事務所〈<b>CoWRITE</b>〉代表は、​日本レコード大賞 作曲賞・優秀作品賞を​受賞した​杉山勝彦。</p>
+</div>
 </section>
-
 <!-- LISTEN -->
 <section class="sec listen" id="listen">
-  <div class="wrap">
-    <div class="sec-head r">
-      <span class="eyebrow">Listen</span>
-      <h2>作品を、聴く。</h2>
-      <p class="lead">作曲・編曲で参加した楽曲を、各プラットフォームでそのまま再生できます。</p>
-    </div>
-    <div class="players">
-      <div class="player r"><div class="pcap"><span class="pa">Hey! Say! JUMP — Tiki Don</span><span class="pr">作曲・編曲</span></div>
-        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/1xfc6F0xtrWt5l7vIUY3MN?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="player r"><div class="pcap"><span class="pa">櫻坂46 — 今さらSuddenly</span><span class="pr">作曲・編曲</span></div>
-        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/51jGTlFATxIOcpVI2yhr1f?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="player r"><div class="pcap"><span class="pa">ASCA — Stellar</span><span class="pr">作曲・編曲</span></div>
-        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/01wMZwVwyansbVRoo1Nf7D?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="player r"><div class="pcap"><span class="pa">矢野妃菜喜 — 鏡YO鏡 feat. 真山りか</span><span class="pr">作曲</span></div>
-        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/455hSvAoxGtbDJ35Oa00ou?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="player r"><div class="pcap"><span class="pa">TORA PROJECT — SNooZe</span><span class="pr">作曲・編曲</span></div>
-        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/7uj4nWBIomDoClIBOr8CWj?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="player r"><div class="pcap"><span class="pa">トグルHD — ゼロイチの前夜</span><span class="pr">作曲</span></div>
-        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/3fMNMkic1ZHHHzfmtgfuLr?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="player r"><div class="pcap"><span class="pa">神納セイガ — Let's Go Party Night！</span><span class="pr">編曲</span></div>
-        <iframe loading="lazy" style="width:100%;border-radius:12px" height="175" src="https://embed.music.apple.com/jp/song/1682007531" allow="autoplay *; encrypted-media *;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"></iframe></div>
-    </div>
-    <p class="listen-note r">※ 神納セイガのみ Apple Music、ほかは Spotify で再生。</p>
-  </div>
+<div class="wrap">
+<div class="sec-head r">
+<span class="eyebrow">Listen</span>
+<h2>作品を、​聴く。</h2>
+<p class="lead">作曲・編曲で​参加した​楽曲を、​各プラットフォームで​そのまま​再生できます。</p>
+</div>
+<div class="players">
+<div class="player r"><div class="pcap"><span class="pa">Hey! Say! JUMP — Tiki Don</span><span class="pr">作曲・編曲</span></div>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/1xfc6F0xtrWt5l7vIUY3MN?theme=0" style="width:100%"></iframe></div>
+<div class="player r"><div class="pcap"><span class="pa">櫻坂46 — 今さら​Suddenly</span><span class="pr">作曲・編曲</span></div>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/51jGTlFATxIOcpVI2yhr1f?theme=0" style="width:100%"></iframe></div>
+<div class="player r"><div class="pcap"><span class="pa">ASCA — Stellar</span><span class="pr">作曲・編曲</span></div>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/01wMZwVwyansbVRoo1Nf7D?theme=0" style="width:100%"></iframe></div>
+<div class="player r"><div class="pcap"><span class="pa">矢野妃菜喜 — 鏡YO鏡 feat. 真山りか</span><span class="pr">​作曲</span></div>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/455hSvAoxGtbDJ35Oa00ou?theme=0" style="width:100%"></iframe></div>
+<div class="player r"><div class="pcap"><span class="pa">TORA PROJECT — SNooZe</span><span class="pr">作曲・編曲</span></div>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/7uj4nWBIomDoClIBOr8CWj?theme=0" style="width:100%"></iframe></div>
+<div class="player r"><div class="pcap"><span class="pa">トグルHD — ゼロイチの​前夜</span><span class="pr">作曲</span></div>
+<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/3fMNMkic1ZHHHzfmtgfuLr?theme=0" style="width:100%"></iframe></div>
+<div class="player r"><div class="pcap"><span class="pa">神納セイガ — Let's Go Party Night！</span><span class="pr">​編曲</span></div>
+<iframe allow="autoplay *; encrypted-media *;" height="175" loading="lazy" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/song/1682007531" style="width:100%;border-radius:12px"></iframe></div>
+</div>
+<p class="listen-note r">※ 神納セイガのみ​ Apple Music、​ほかは​ Spotify で​再生。</p>
+</div>
 </section>
-
 <!-- CINEMATIC DIVIDER -->
 <section class="cine">
-  <div class="cine-bg"><img src="assets/faders.jpg" alt="ミキシングコンソール" /></div>
-  <div class="wrap">
-    <p class="quote r">ひとつの音の<span class="hl">説得力</span>に、<br>すべてを賭ける。</p>
-    <div class="cap r">Studio Production · Tokyo / Los Angeles</div>
-  </div>
+<div class="cine-bg"><img alt="ミキシングコンソール" src="assets/faders.jpg"/></div>
+<div class="wrap">
+<p class="quote r">ひとつの​音の<span class="hl">​説得力</span>に、<br/>すべてを​賭ける。</p>
+<div class="cap r">Studio Production · Tokyo / Los Angeles</div>
+</div>
 </section>
-
 <!-- CHANNEL -->
 <section class="sec chan" id="channel">
-  <div class="wrap">
-    <div class="sec-head r">
-      <span class="eyebrow">Channel · @itsGINPEI</span>
-      <h2>制作の過程を、<br>そのまま届ける。</h2>
-      <p class="lead">ダンスミュージック制作のテクニックと考え方を、現場のままYouTubeで発信。海外のサウンドを志向する制作者へ向けたチュートリアルを軸にしています。</p>
-    </div>
-    <div class="ytfeature r">
-      <iframe loading="lazy" src="https://www.youtube.com/embed/5pRbjcWt2uA" title="9割が誤解：音を重ねても“プロの迫力”は出ない" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-    <div class="ytgrid r">
-      <a class="ytcard" href="https://www.youtube.com/watch?v=tLiiZBZwtHc" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/tLiiZBZwtHc/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">DTM初心者が持つべき3つの無料プラグイン</div></a>
-      <a class="ytcard" href="https://www.youtube.com/watch?v=yBNkeNyOTpg" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/yBNkeNyOTpg/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">海外EDMの音圧に負けないマスタリング6手順</div></a>
-      <a class="ytcard" href="https://www.youtube.com/watch?v=mCBgKceU18M" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/mCBgKceU18M/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">何時間かけても音が濁り続ける本当の理由</div></a>
-      <a class="ytcard" href="https://www.youtube.com/watch?v=h0SNBi_CkYA" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://img.youtube.com/vi/h0SNBi_CkYA/hqdefault.jpg" alt="" /><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></div><div class="yt-t">初心者でもK-Popを簡単に作曲する方法</div></a>
-    </div>
-    <div class="stats r">
-      <div class="stat"><b>29,900+</b><span>Subscribers</span></div>
-      <div class="stat"><b>2.1M</b><span>Total Views</span></div>
-      <div class="stat"><b>56</b><span>Films</span></div>
-      <div class="stat"><b>2019</b><span>Since</span></div>
-    </div>
-    <a class="btn btn-p r" href="https://www.youtube.com/@itsGINPEI" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg>
-      YouTubeチャンネルへ
+<div class="wrap">
+<div class="sec-head r">
+<span class="eyebrow">Channel · @itsGINPEI</span>
+<h2>制作の​過程を、<br/>そのまま​届ける。</h2>
+<p class="lead">ダンスミュージック制作の​テクニックと​考え方を、​現場のまま​YouTubeで​発信。​海外の​サウンドを​志向する​制作者へ​向けた​チュートリアルを​軸に​しています。</p>
+</div>
+<div class="ytfeature r">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/videoseries?list=UUoex1y5-GkA7Y5_iRGmR3KQ&amp;rel=0" title="GINPEI 最新動画"></iframe>
+</div>
+<div class="ytcap r">最新の​アップロードを​自動表示</div>
+<div class="ytgrid r" id="ytgrid"></div>
+<div class="stats r">
+<div class="stat"><b>29,900+</b><span>Subscribers</span></div>
+<div class="stat"><b>2.1M</b><span>Total Views</span></div>
+<div class="stat"><b>56</b><span>Films</span></div>
+<div class="stat"><b>2019</b><span>Since</span></div>
+</div>
+<a class="btn btn-p r" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"></path></svg>
+      YouTubeチャンネルへ​
     </a>
-  </div>
+</div>
 </section>
-
 <!-- ABOUT -->
 <section class="sec about" id="about">
-  <div class="wrap">
-    <div class="sec-head r">
-      <span class="eyebrow">About</span>
-      <h2>GINPEI</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-fig r">
-        <img src="assets/ginpei-portrait.jpg" alt="GINPEI ポートレート" width="652" height="588" />
-        <span class="tag">Studio · Tokyo</span>
-      </div>
-      <div class="r">
-        <div class="specsheet">
-          <div class="srow"><span class="sl">Based</span><span class="sv">東京, 日本</span></div>
-          <div class="srow"><span class="sl">Field</span><span class="sv">作曲 · 編曲 · プロデュース</span></div>
-          <div class="srow"><span class="sl">Genre</span><span class="sv">Dance / Pop<small>海外志向のダンス／ポップ</small></span></div>
-          <div class="srow"><span class="sl">Agency</span><span class="sv">CoWRITE<small>代表：杉山勝彦（日本レコード大賞 作曲賞・優秀作品賞）</small></span></div>
-          <div class="srow"><span class="sl">Roots</span><span class="sv">18歳でDJ、20歳から楽曲制作<small>クラブのフロアで磨いた「鳴らした瞬間に伝わる音」</small></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head r">
+<span class="eyebrow">About</span>
+<h2>GINPEI</h2>
+</div>
+<div class="about-grid">
+<div class="about-fig r">
+<img alt="GINPEI ポートレート" height="588" src="assets/ginpei-portrait.jpg" width="652"/>
+<span class="tag">Studio · Tokyo</span>
+</div>
+<div class="r">
+<div class="specsheet">
+<div class="srow"><span class="sl">Based</span><span class="sv">東京, 日本</span></div>
+<div class="srow"><span class="sl">Field</span><span class="sv">作曲 · 編曲 · プロデュース</span></div>
+<div class="srow"><span class="sl">Genre</span><span class="sv">Dance / Pop<small>海外志向の​ダンス／ポップ</small></span></div>
+<div class="srow"><span class="sl">Agency</span><span class="sv">CoWRITE<small>代表：杉山勝彦​（日本レコード大賞 作曲賞・優秀作品賞）</small></span></div>
+<div class="srow"><span class="sl">Roots</span><span class="sv">18歳で​DJ、​20歳から​楽曲制作<small>クラブの​フロアで​磨いた​「鳴らした​瞬間に​伝わる​音」</small></span></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- CONNECT -->
 <section class="connect" id="connect">
-  <div class="wrap">
-    <div class="sec-head r">
-      <span class="eyebrow">Connect</span>
-      <h2>つながる。</h2>
-    </div>
-    <div class="clinks r">
-      <a class="clink" href="https://www.youtube.com/@itsGINPEI" target="_blank" rel="noopener">
-        <div><div class="cl-l">YouTube</div><div class="cl-h">@itsGINPEI</div></div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      <a class="clink" href="https://x.com/itsGINPEI" target="_blank" rel="noopener">
-        <div><div class="cl-l">X (Twitter)</div><div class="cl-h">@itsGINPEI</div></div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-      <a class="clink" href="https://www.instagram.com/itsginpei/" target="_blank" rel="noopener">
-        <div><div class="cl-l">Instagram</div><div class="cl-h">@itsginpei</div></div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-    </div>
-    <p class="cfoot r">楽曲制作・コライト・タイアップのご相談は、<a href="https://www.instagram.com/itsginpei/" target="_blank" rel="noopener">Instagram</a> のDMから。</p>
-  </div>
+<div class="wrap">
+<div class="sec-head r">
+<span class="eyebrow">Connect</span>
+<h2>つながる。</h2>
+</div>
+<div class="clinks r">
+<a class="clink" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
+<div><div class="cl-l">YouTube</div><div class="cl-h">@itsGINPEI</div></div>
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
+<a class="clink" href="https://x.com/itsGINPEI" rel="noopener" target="_blank">
+<div><div class="cl-l">X (Twitter)</div><div class="cl-h">@itsGINPEI</div></div>
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
+<a class="clink" href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">
+<div><div class="cl-l">Instagram</div><div class="cl-h">@itsginpei</div></div>
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
+</div>
+<p class="cfoot r">楽曲制作・コライト・タイアップの​ご相談は、<a href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">​Instagram</a> の​DMから。</p>
+</div>
 </section>
-
 <footer class="footer">
-  <div class="wrap">
-    <div class="fb"><img src="assets/logo-mark.png" alt="" width="26" height="26" /><span>GINPEI</span></div>
-    <div class="fm">© 2026 GINPEI · Composer / Arranger / Producer · Tokyo</div>
-  </div>
+<div class="wrap">
+<div class="fb"><img alt="" height="26" src="assets/logo-mark.png" width="26"/><span>GINPEI</span></div>
+<div class="fm">© 2026 GINPEI · Composer / Arranger / Producer · Tokyo</div>
+</div>
 </footer>
-
 <script>
 (function(){
   var nav=document.getElementById('nav');
@@ -465,6 +453,26 @@ section{position:relative}
   if(reduce||!('IntersectionObserver' in window)){items.forEach(function(e){e.classList.add('in')})}
   else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var sib=Array.prototype.slice.call(e.target.parentNode.querySelectorAll(':scope>.r'));var i=sib.indexOf(e.target);e.target.style.transitionDelay=(Math.max(0,i)*80)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -7% 0px'});
   items.forEach(function(e){io.observe(e)})}
+})();
+</script>
+<script>
+/* latest videos — always pulls the channel's newest uploads (RSS via CORS proxy); the playlist embed above is the no-dependency fallback */
+(function(){
+  var grid=document.getElementById('ytgrid'); if(!grid) return;
+  var feed='https://www.youtube.com/feeds/videos.xml?channel_id=UCoex1y5-GkA7Y5_iRGmR3KQ';
+  fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(feed)).then(function(r){return r.text();}).then(function(x){
+    var d=new DOMParser().parseFromString(x,'text/xml');
+    var es=Array.prototype.slice.call(d.getElementsByTagName('entry')).slice(0,8);
+    if(!es.length){throw 0;}
+    grid.innerHTML=es.map(function(e){
+      var id='';var v=e.getElementsByTagName('yt:videoId')[0];
+      if(v){id=v.textContent;}
+      if(!id){var lk=e.getElementsByTagName('link')[0]; if(lk){id=((lk.getAttribute('href')||'').split('v=')[1]||'').split('&')[0];}}
+      var t=(e.getElementsByTagName('title')[0]||{}).textContent||'';
+      t=t.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      return '<a class="ytcard" href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener"><div class="thumb"><img loading="lazy" src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt=""><span class="pl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg></span></div><div class="yt-t">'+t+'</div></a>';
+    }).join('');
+  }).catch(function(){ grid.style.display='none'; });
 })();
 </script>
 </body>
