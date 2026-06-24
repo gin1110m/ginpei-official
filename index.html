@@ -1,509 +1,329 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GINPEI — Composer / Arranger / Producer</title>
-<meta content="東京を拠点に活動する作編曲家 GINPEI のオフィシャルサイト。ダンスミュージックを軸にした楽曲制作と、その過程を伝えるYouTube発信。" name="description"/>
-<!-- Open Graph / sharing -->
-<meta content="website" property="og:type"/>
-<meta content="GINPEI — Composer / Arranger / Producer" property="og:title"/>
-<meta content="東京を拠点に活動する作編曲家 GINPEI のオフィシャルサイト。" property="og:description"/>
-<meta content="assets/ginpei-portrait.jpg" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link href="assets/favicon-64.png" rel="icon" type="image/png"/>
-<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="作編曲家 GINPEI のオフィシャル。東京拠点、ダンス／ポップを軸にメジャー作品へ作曲・編曲で参加。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="GINPEI — Composer / Arranger / Producer" />
+<meta property="og:description" content="作編曲家 GINPEI のオフィシャル。" />
+<meta property="og:image" content="assets/ginpei-portrait.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="assets/favicon-64.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Arimo:ital,wght@0,400;0,500;0,700;1,400&family=Shippori+Mincho:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
-/* ============================================================
-   GINPEI Official — Design System (DESIGN.md)
-   静寂の中に希望が灯る、深夜のスタジオ。
-   ============================================================ */
 :root{
-  --bg:#1a1a1e;            /* Deep Studio Gray */
-  --surface:#232328;       /* Warm Shadow */
-  --surface-2:#2a2a30;
-  --divide:rgba(255,255,255,.08);
-  --divide-strong:rgba(255,255,255,.14);
-  --accent:#4A90D9;        /* Signal Blue */
-  --accent-bright:#5e9fe0;
-  --accent-glow:rgba(74,144,217,.15);
-  --text:#F5F5F7;          /* Pure Light */
-  --muted:rgba(255,255,255,.66);
-  --whisper:rgba(255,255,255,.42);
-  --font-en:"Helvetica Neue",Helvetica,Arial,sans-serif;
-  --font-jp:"Noto Sans JP",var(--font-en);
-  --maxw:1180px;
-  --ease-in:cubic-bezier(.16,1,.3,1);
+  --paper:#f4f1ea; --gallery:#d9d5cc; --panel:#ece7dc;
+  --ink:#16140f; --soft:#5f594e; --faint:#a39a86;
+  --accent:#2f6bd6;            /* GINPEI signal blue — single accent */
+  --accent-deep:#2356bd;
+  --steel:#5b6b78;
+  --hair:rgba(22,20,15,.16); --hair-soft:rgba(22,20,15,.09);
+  --bebas:'Bebas Neue',Impact,sans-serif;
+  --disp:'Helvetica Neue',Helvetica,'Arimo',Arial,sans-serif;
+  --mincho:'Shippori Mincho','Noto Sans JP',serif;
+  --jp:'Noto Sans JP',sans-serif;
 }
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  font-family:var(--font-jp);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.8;
-  font-weight:400;
-  letter-spacing:.01em;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  background:var(--gallery);color:var(--ink);font-family:var(--disp);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  padding:34px 0 64px; word-break:keep-all; overflow-wrap:anywhere; overflow-x:hidden;
 }
-img{display:block;max-width:100%;height:auto;}
-a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 
-/* ambient texture overlay */
-.grain{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  opacity:.035;mix-blend-mode:screen;
+/* ---------- deck + slide canvas (container-query scaled) ---------- */
+.deck{display:flex;flex-direction:column;align-items:center;gap:30px}
+.slide{
+  width:min(1200px,94vw); aspect-ratio:16/9; background:var(--paper);
+  position:relative; container-type:inline-size; overflow:hidden;
+  box-shadow:0 22px 54px rgba(0,0,0,.18); border-radius:2px;
 }
-.ambient{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
+/* ruler tick edge */
+.ruler{position:absolute;top:0;left:0;right:0;height:1.6cqw;
   background:
-    radial-gradient(1100px 700px at 78% -8%, rgba(74,144,217,.12), transparent 60%),
-    radial-gradient(900px 800px at 12% 108%, rgba(74,144,217,.07), transparent 60%);
-}
+    repeating-linear-gradient(90deg,var(--steel) 0 .09cqw,transparent .09cqw 1.5cqw),
+    repeating-linear-gradient(90deg,var(--steel) 0 .12cqw,transparent .12cqw 7.5cqw);
+  opacity:.55;border-bottom:.08cqw solid var(--hair-soft)}
+.pad{position:absolute;inset:0;padding:7.0cqw 3.6cqw 3.0cqw}
+.logo{position:absolute;top:4.0cqw;left:3.6cqw;font-family:var(--disp);font-weight:700;font-size:1.6cqw;letter-spacing:.02em}
+.logo .dot{color:var(--accent)}
+.pageno{position:absolute;top:4.2cqw;right:3.6cqw;font-weight:500;font-size:1.25cqw;letter-spacing:.06em;color:var(--steel)}
+.disclaim{position:absolute;left:3.6cqw;bottom:3.0cqw;font-weight:500;font-size:.82cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+.adg{position:absolute;right:3.6cqw;bottom:3.0cqw;font-weight:500;font-size:.9cqw;letter-spacing:.16em;color:var(--steel);text-transform:uppercase}
+.title{text-align:center;font-family:var(--bebas);font-size:4.4cqw;letter-spacing:.05em;line-height:1}
+.rule{height:.16cqw;background:var(--ink);margin:1.3cqw 0 1.0cqw}
+.sys{display:flex;justify-content:space-between;align-items:baseline;font-weight:500;font-size:.9cqw;letter-spacing:.13em;color:var(--steel);text-transform:uppercase}
+.sys .mid{color:var(--ink)}
+.kick{display:flex;align-items:center;gap:1.2cqw;font-weight:700;font-size:.95cqw;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+.kick::before{content:"";width:2.6cqw;height:.14cqw;background:var(--accent)}
 
-/* ---------- layout helpers ---------- */
-.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;}
-@media(min-width:768px){.wrap{padding:0 4rem;}}
-@media(min-width:1024px){.wrap{padding:0 5rem;}}
+/* ---------- 01 cover ---------- */
+.cover{display:grid;grid-template-columns:1.15fr .85fr}
+.cover .left{padding:7.5cqw 0 0 3.6cqw;display:flex;flex-direction:column;justify-content:center}
+.cover .wm{font-family:var(--disp);font-weight:700;font-size:11.5cqw;letter-spacing:-.045em;line-height:.86}
+.cover .wm .dot{color:var(--accent)}
+.cover .spec{display:flex;gap:1.3cqw;align-items:center;font-weight:500;font-size:1.02cqw;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);margin:2.4cqw 0 1.6cqw}
+.cover .spec .d{width:.42cqw;height:.42cqw;background:var(--accent);border-radius:50%}
+.cover .tag{font-family:var(--mincho);font-weight:600;font-size:2.0cqw;color:var(--ink);letter-spacing:.02em}
+.cover .tag-en{font-style:italic;font-weight:400;font-size:1.5cqw;color:var(--soft);margin-top:.7cqw;font-family:var(--disp)}
+.cover .right{position:relative;overflow:hidden;background:var(--panel)}
+.cover .right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;filter:saturate(.96) contrast(1.02)}
+.cover .right::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,var(--paper) 0%,rgba(244,241,234,.0) 24%)}
+.cover .code{position:absolute;right:1.0cqw;bottom:.9cqw;z-index:2;font-weight:500;font-size:.78cqw;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.5)}
 
-.eyebrow{
-  font-family:var(--font-en);
-  font-size:.78rem;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--accent);
-  display:inline-block;margin-bottom:1.4rem;
-}
-.section{padding:7rem 0;}
-@media(min-width:768px){.section{padding:11rem 0;}}
-.section-head{max-width:680px;margin-bottom:3.5rem;}
-.section-head h2{
-  font-family:var(--font-jp);font-weight:900;
-  font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.25;
-  letter-spacing:-.01em;
-}
-.lead{color:var(--muted);font-size:1.05rem;line-height:1.95;max-width:640px;}
+/* ---------- 02 contents ---------- */
+.toc{display:flex;flex-direction:column;margin-top:1.4cqw;border-top:.1cqw solid var(--hair)}
+.toc a{display:flex;align-items:baseline;gap:1.6cqw;padding:1.55cqw .4cqw;border-bottom:.1cqw solid var(--hair);transition:color .2s,padding-left .2s,background .2s}
+.toc a:hover{color:var(--accent);padding-left:1.2cqw;background:rgba(47,107,214,.05)}
+.toc .n{font-weight:500;font-size:1.1cqw;color:var(--steel);min-width:3.2cqw}
+.toc .t{font-weight:500;font-size:1.7cqw;letter-spacing:-.01em}
+.toc .th{margin-left:auto;font-weight:700;font-size:.82cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.lede{font-weight:400;font-size:1.18cqw;line-height:1.55;color:var(--soft);max-width:52cqw;margin-top:1.0cqw}
 
-/* ---------- nav ---------- */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.15rem 1.5rem;
-  background:rgba(26,26,30,.72);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid transparent;
-  transition:background-color .3s var(--ease-in),border-color .3s var(--ease-in);
-}
-.nav.scrolled{background:rgba(26,26,30,.88);border-bottom:1px solid var(--divide);}
-@media(min-width:768px){.nav{padding:1.15rem 4rem;}}
-.brand{
-  font-family:var(--font-en);font-weight:700;
-  font-size:1.05rem;letter-spacing:.34em;padding-left:.34em;
-  display:flex;align-items:center;gap:.7rem;
-}
-.brand img{width:26px;height:26px;opacity:.95;}
-.nav-links{display:none;gap:2.4rem;align-items:center;}
-@media(min-width:880px){.nav-links{display:flex;}}
-.nav-links a{
-  font-family:var(--font-en);font-size:.86rem;font-weight:500;
-  letter-spacing:.12em;color:var(--muted);
-  transition:color .15s ease;position:relative;padding:.3rem 0;
-}
-.nav-links a:hover{color:var(--text);}
-.nav-cta{
-  font-family:var(--font-jp);font-size:.84rem;font-weight:500;
-  letter-spacing:.04em;color:var(--text)!important;
-  border:1px solid var(--accent);border-radius:10px;
-  padding:.5rem 1.1rem;
-  transition:background-color .15s ease,box-shadow .15s ease;
-}
-.nav-cta:hover{background:var(--accent-glow);box-shadow:0 0 0 4px var(--accent-glow);}
-.menu-btn{
-  display:flex;flex-direction:column;gap:5px;background:none;border:0;
-  cursor:pointer;padding:8px;min-width:44px;min-height:44px;
-  align-items:center;justify-content:center;
-}
-@media(min-width:880px){.menu-btn{display:none;}}
-.menu-btn span{width:22px;height:2px;background:var(--text);transition:transform .3s var(--ease-in),opacity .3s ease;}
-.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.menu-btn.open span:nth-child(2){opacity:0;}
-.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-/* fullscreen mobile menu */
-.mobile-menu{
-  position:fixed;inset:0;z-index:45;
-  background:rgba(20,20,24,.97);backdrop-filter:blur(24px);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;
-  opacity:0;pointer-events:none;transition:opacity .35s var(--ease-in);
-}
-.mobile-menu.open{opacity:1;pointer-events:auto;}
-.mobile-menu a{font-family:var(--font-en);font-size:1.5rem;font-weight:500;letter-spacing:.1em;color:var(--text);}
-.mobile-menu a.small{font-family:var(--font-jp);font-size:1rem;color:var(--accent);font-weight:500;letter-spacing:.04em;}
+/* ---------- 03 profile ---------- */
+.prof{display:grid;grid-template-columns:1fr 1fr;gap:3.4cqw;margin-top:1.6cqw}
+.prof-fig{position:relative;overflow:hidden;background:var(--panel);border:.1cqw solid var(--hair)}
+.prof-fig img{width:100%;height:100%;object-fit:cover;object-position:50% 26%;filter:saturate(.95)}
+.prof-fig .code{position:absolute;left:.7cqw;bottom:.6cqw;font-weight:500;font-size:.74cqw;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.55)}
+.specsheet{display:flex;flex-direction:column;border-top:.1cqw solid var(--hair)}
+.specsheet .row{display:grid;grid-template-columns:8.4cqw 1fr;gap:1.4cqw;padding:1.18cqw 0;border-bottom:.1cqw solid var(--hair-soft);align-items:baseline}
+.specsheet .sl{font-weight:700;font-size:.82cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.specsheet .sv{font-weight:500;font-size:1.22cqw;color:var(--ink);line-height:1.35}
+.specsheet .sv small{display:block;font-weight:400;font-size:.92cqw;color:var(--soft);letter-spacing:.02em;margin-top:.2cqw}
+.essence{font-family:var(--mincho);font-weight:600;font-size:1.5cqw;line-height:1.5;color:var(--ink);margin-top:1.6cqw}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding-top:6rem;padding-bottom:4rem;}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;}
-@media(min-width:920px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:4rem;}}
-.hero-eyebrow{font-family:var(--font-en);font-size:.78rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);}
-.hero h1{
-  font-family:var(--font-en);font-weight:900;
-  font-size:clamp(4.2rem,16vw,9rem);line-height:.92;letter-spacing:-.04em;
-  margin:1.1rem 0 1.6rem;
-}
-.hero .sub-en{
-  font-family:var(--font-en);font-weight:300;
-  font-size:clamp(1.1rem,3.4vw,1.5rem);letter-spacing:-.01em;
-  color:var(--text);margin-bottom:1.5rem;line-height:1.4;
-}
-.hero .sub-jp{color:var(--muted);font-size:1.02rem;line-height:1.95;max-width:30em;margin-bottom:2.4rem;}
-.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;}
+/* ---------- 04 works (catalog) ---------- */
+.cat{display:flex;flex-direction:column;margin-top:.6cqw;border-top:.12cqw solid var(--ink)}
+.cat .w{display:grid;grid-template-columns:3.2cqw 13.5cqw 1fr 9cqw;gap:1.4cqw;align-items:baseline;
+  padding:1.18cqw .2cqw;border-bottom:.1cqw solid var(--hair);transition:background .2s,padding-left .2s}
+.cat .w:hover{background:rgba(47,107,214,.05);padding-left:.9cqw}
+.cat .wn{font-family:var(--bebas);font-size:1.9cqw;color:var(--accent);letter-spacing:.03em;line-height:1}
+.cat .wa{font-weight:700;font-size:1.32cqw;letter-spacing:-.01em;color:var(--ink)}
+.cat .wt{font-weight:500;font-size:1.24cqw;color:var(--ink)}
+.cat .wt small{color:var(--faint);font-weight:400;font-size:.86cqw;letter-spacing:.02em}
+.cat .wr{text-align:right;font-weight:500;font-size:.86cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);white-space:nowrap}
+.catfoot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:1.5cqw}
+.catfoot .note{font-weight:400;font-size:1.0cqw;color:var(--soft);max-width:40cqw;line-height:1.5}
+.catfoot .note b{color:var(--ink);font-weight:700}
+.catfoot .stamp{font-family:var(--bebas);font-size:2.4cqw;color:var(--hair);letter-spacing:.06em}
 
-.btn{
-  font-family:var(--font-jp);font-weight:500;letter-spacing:.04em;font-size:.98rem;
-  border-radius:12px;padding:.95rem 1.9rem;min-height:44px;
-  display:inline-flex;align-items:center;gap:.6rem;cursor:pointer;border:1px solid transparent;
-  transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease,color .15s ease;
-}
-.btn-primary{background:var(--accent);color:#fff;}
-.btn-primary:hover{background:var(--accent-bright);box-shadow:0 0 0 5px var(--accent-glow);}
-.btn-ghost{border-color:var(--divide-strong);color:var(--text);}
-.btn-ghost:hover{border-color:var(--accent);background:var(--accent-glow);}
-.btn svg{width:17px;height:17px;}
+/* ---------- 05 channel (numbers) ---------- */
+.chan{display:grid;grid-template-columns:1.05fr .95fr;gap:3.2cqw;margin-top:1.4cqw;align-items:stretch}
+.figs{display:flex;flex-direction:column;justify-content:center;border-top:.12cqw solid var(--ink)}
+.figs .f{display:flex;align-items:baseline;justify-content:space-between;gap:1.4cqw;padding:1.25cqw 0;border-bottom:.1cqw solid var(--hair)}
+.figs .fb{font-family:var(--bebas);font-size:5.4cqw;line-height:.84;letter-spacing:.02em;color:var(--ink)}
+.figs .fl{font-weight:700;font-size:.9cqw;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);text-align:right;max-width:13cqw}
+.chan-fig{position:relative;overflow:hidden;background:#17140f;border:.1cqw solid var(--hair)}
+.chan-fig img{width:100%;height:100%;object-fit:cover;opacity:.82}
+.chan-fig::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(23,20,15,.55))}
+.chan-fig .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:6cqw;height:6cqw;border-radius:50%;
+  background:var(--accent);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 .6cqw 1.8cqw rgba(0,0,0,.4)}
+.chan-fig .play svg{width:2.4cqw;height:2.4cqw;fill:#fff;margin-left:.3cqw}
+.chan-fig .cc{position:absolute;left:1.0cqw;bottom:.8cqw;z-index:2;font-weight:500;font-size:.82cqw;letter-spacing:.14em;text-transform:uppercase;color:#fff}
 
-.hero-portrait{position:relative;}
-.hero-portrait .frame{
-  position:relative;border-radius:18px;overflow:hidden;
-  border:1px solid var(--divide-strong);
-  background:var(--surface);
-}
-.hero-portrait .frame img{width:100%;filter:saturate(.92) contrast(1.02);}
-.hero-portrait .frame::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(26,26,30,.55));
-  pointer-events:none;
-}
-.hero-portrait .glow{
-  position:absolute;inset:-30px -30px -10px -30px;z-index:-1;
-  background:radial-gradient(closest-side,var(--accent-glow),transparent 75%);
-  filter:blur(14px);
-}
-.hero-portrait .tag{
-  position:absolute;left:1.1rem;bottom:1.1rem;z-index:2;
-  font-family:var(--font-en);font-size:.72rem;font-weight:500;letter-spacing:.14em;
-  color:var(--whisper);text-transform:uppercase;
-  background:rgba(26,26,30,.55);backdrop-filter:blur(6px);
-  padding:.35rem .7rem;border-radius:8px;border:1px solid var(--divide);
-}
-.scroll-cue{
-  position:absolute;left:50%;bottom:2rem;transform:translateX(-50%);
-  font-family:var(--font-en);font-size:.68rem;letter-spacing:.22em;color:var(--whisper);
-  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.5rem;
-}
-.scroll-cue .line{width:1px;height:34px;background:linear-gradient(var(--whisper),transparent);animation:cue 2.2s var(--ease-in) infinite;}
-@keyframes cue{0%{transform:scaleY(.2);transform-origin:top;opacity:0;}40%{opacity:1;}100%{transform:scaleY(1);transform-origin:top;opacity:0;}}
+/* ---------- 06 end ---------- */
+.end{background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:space-between;padding:4.4cqw 3.6cqw}
+.end::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 12%,rgba(47,107,214,.22),transparent 60%);pointer-events:none}
+.end .et,.end .eb{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;font-weight:500;font-size:.86cqw;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,241,234,.62)}
+.end .ec{position:relative;z-index:2;text-align:center}
+.end .ec .ewm{font-family:var(--disp);font-weight:700;font-size:9cqw;letter-spacing:-.045em;line-height:.9}
+.end .ec .ewm .dot{color:var(--accent)}
+.end .ec .esub{font-family:var(--mincho);font-weight:600;font-size:1.6cqw;color:var(--ink-soft,#cfc7b6);margin-top:1.0cqw;color:rgba(244,241,234,.8)}
+.links{display:flex;justify-content:center;gap:2.2cqw;margin-top:2.0cqw}
+.links a{font-weight:700;font-size:1.1cqw;letter-spacing:.04em;color:var(--paper);border-bottom:.14cqw solid rgba(47,107,214,.6);padding-bottom:.3cqw;transition:border-color .2s,color .2s}
+.links a:hover{color:var(--accent);border-color:var(--accent)}
 
-/* ---------- story ---------- */
-.story{position:relative;}
-.story .beats{max-width:680px;}
-.story .beat{font-size:clamp(1.15rem,3vw,1.45rem);line-height:1.95;color:var(--text);font-weight:400;margin-bottom:1.6rem;}
-.story .beat.muted{color:var(--muted);}
-.pullquote{
-  font-family:var(--font-jp);font-weight:900;
-  font-size:clamp(1.6rem,4.6vw,2.6rem);line-height:1.4;letter-spacing:-.01em;
-  margin:3rem 0;color:var(--text);max-width:14em;
-}
-.pullquote .hl{color:var(--accent);}
-.story .now{color:var(--muted);font-size:1.05rem;line-height:1.95;max-width:640px;border-top:1px solid var(--divide);padding-top:2.2rem;}
-
-/* ---------- works ---------- */
-.works-list{border-top:1px solid var(--divide);margin-top:1rem;}
-.work{
-  display:grid;grid-template-columns:1fr;gap:.35rem;
-  padding:1.9rem 0;border-bottom:1px solid var(--divide);
-  transition:border-color .6s var(--ease-in);
-}
-@media(min-width:760px){
-  .work{grid-template-columns:14rem 1fr auto;gap:1.5rem;align-items:baseline;padding:2.1rem .4rem;}
-}
-.work:hover{border-bottom-color:var(--divide-strong);}
-.work .artist{font-family:var(--font-jp);font-weight:700;font-size:1.12rem;letter-spacing:0;color:var(--text);}
-.work .title{font-size:1.05rem;color:var(--text);font-weight:500;}
-.work .title em{font-style:normal;color:var(--whisper);font-weight:400;font-size:.92rem;display:block;margin-top:.2rem;}
-.work .role{
-  font-family:var(--font-en);font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--accent);white-space:nowrap;
-}
-.works-note{margin-top:3rem;color:var(--muted);font-size:1rem;line-height:1.95;max-width:640px;}
-.works-note .agency{color:var(--text);font-weight:500;}
-
-/* ---------- channel (full-bleed) ---------- */
-.channel{position:relative;padding:9rem 0;overflow:hidden;}
-.channel-bg{position:absolute;inset:0;z-index:0;}
-.channel-bg img{width:100%;height:100%;object-fit:cover;opacity:.5;}
-.channel-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,26,30,.96),rgba(26,26,30,.78) 55%,rgba(26,26,30,.6));}
-.channel .wrap{position:relative;z-index:1;}
-.channel-inner{max-width:600px;}
-.channel h2{font-family:var(--font-jp);font-weight:900;font-size:clamp(1.9rem,5vw,2.9rem);line-height:1.25;margin:1rem 0 1.4rem;}
-.channel p{color:var(--muted);font-size:1.05rem;line-height:1.95;margin-bottom:2.4rem;}
-.channel .stat{display:flex;align-items:baseline;gap:.6rem;margin-bottom:2.2rem;}
-.channel .stat b{font-family:var(--font-en);font-weight:900;font-size:clamp(2.4rem,7vw,3.6rem);letter-spacing:-.03em;color:var(--text);line-height:1;}
-.channel .stat span{color:var(--whisper);font-size:.85rem;letter-spacing:.08em;font-family:var(--font-en);text-transform:uppercase;}
-
-/* ---------- connect ---------- */
-.connect-grid{display:grid;grid-template-columns:1fr;gap:1.2rem;margin-top:1rem;}
-@media(min-width:720px){.connect-grid{grid-template-columns:repeat(3,1fr);}}
-.link-card{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  background:var(--surface);border:1px solid var(--divide);border-radius:16px;
-  padding:2rem 2.1rem;min-height:108px;
-  transition:border-color .6s var(--ease-in),background-color .3s var(--ease-in),transform .6s var(--ease-in);
-}
-.link-card:hover{border-color:var(--divide-strong);background:var(--surface-2);transform:translateY(-3px);}
-.link-card .lc-label{font-family:var(--font-en);font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--whisper);margin-bottom:.45rem;}
-.link-card .lc-handle{font-family:var(--font-en);font-size:1.25rem;font-weight:500;letter-spacing:.01em;color:var(--text);}
-.link-card .lc-arrow{color:var(--accent);width:26px;height:26px;flex:none;transition:transform .3s var(--ease-in);}
-.link-card:hover .lc-arrow{transform:translate(3px,-3px);}
-.connect-foot{margin-top:2.6rem;color:var(--muted);font-size:1rem;line-height:1.9;max-width:560px;}
-.connect-foot a{color:var(--accent);border-bottom:1px solid var(--accent-glow);transition:border-color .15s ease;}
-.connect-foot a:hover{border-bottom-color:var(--accent);}
-
-/* ---------- footer ---------- */
-.footer{border-top:1px solid var(--divide);padding:3.5rem 0;}
-.footer .wrap{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start;}
-@media(min-width:680px){.footer .wrap{flex-direction:row;justify-content:space-between;align-items:center;}}
-.footer .f-brand{display:flex;align-items:center;gap:.8rem;}
-.footer .f-brand img{width:30px;height:30px;opacity:.9;}
-.footer .f-brand span{font-family:var(--font-en);font-weight:700;letter-spacing:.3em;padding-left:.3em;}
-.footer .f-meta{color:var(--whisper);font-size:.82rem;font-family:var(--font-en);letter-spacing:.06em;}
-.footer .f-links{display:flex;gap:1.6rem;}
-.footer .f-links a{color:var(--muted);font-size:.86rem;font-family:var(--font-en);letter-spacing:.08em;transition:color .15s ease;}
-.footer .f-links a:hover{color:var(--text);}
+/* ---------- lang toggle ---------- */
+.lang{position:fixed;top:14px;right:16px;z-index:100;display:flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden;background:var(--paper);font-weight:700;font-size:11px;letter-spacing:.08em}
+.lang button{background:none;border:0;padding:6px 11px;cursor:pointer;color:var(--ink);font:inherit;min-height:30px}
+.lang button.on{background:var(--ink);color:var(--paper)}
 
 /* ---------- reveal ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease-in),transform .8s var(--ease-in);}
-.reveal.is-visible{opacity:1;transform:none;}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none!important;scroll-behavior:auto!important;}
-  .reveal{opacity:1!important;transform:none!important;transition:none!important;}
-  .scroll-cue{display:none;}
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.r.in{opacity:1;transform:none}
+
+/* ---------- responsive: phones read better as a vertical column ---------- */
+@media(max-width:760px){
+  body{padding:14px 0 40px}
+  .deck{gap:14px}
+  .slide{width:96vw}
 }
+@media(prefers-reduced-motion:reduce){.r{opacity:1;transform:none;transition:none}}
 </style>
-<style id="budoux-style">body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict;}</style></head>
+</head>
 <body>
-<div aria-hidden="true" class="ambient"></div>
-<svg aria-hidden="true" class="grain" xmlns="http://www.w3.org/2000/svg">
-<filter id="noise"><feturbulence basefrequency="0.9" numoctaves="2" stitchtiles="stitch" type="fractalNoise"></feturbulence></filter>
-<rect filter="url(#noise)" height="100%" width="100%"></rect>
-</svg>
-<!-- ===================== NAV ===================== -->
-<nav class="nav" id="nav">
-<a aria-label="GINPEI home" class="brand" href="#top">
-<img alt="" height="26" src="assets/logo-mark.png" width="26"/>
-<span>GINPEI</span>
-</a>
-<div class="nav-links">
-<a href="#story">Story</a>
-<a href="#works">Works</a>
-<a href="#channel">Channel</a>
-<a href="#connect">Connect</a>
-<a class="nav-cta" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">YouTube</a>
+
+<div class="lang" role="group" aria-label="言語 / Language">
+  <button data-lang="ja" class="on">日本語</button>
+  <button data-lang="en">EN</button>
 </div>
-<button aria-expanded="false" aria-label="メニュー" class="menu-btn" id="menuBtn">
-<span></span><span></span><span></span>
-</button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-<a href="#story">Story</a>
-<a href="#works">Works</a>
-<a href="#channel">Channel</a>
-<a href="#connect">Connect</a>
-<a class="small" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">YouTube を​見る</a>​
+
+<div class="deck">
+
+  <!-- 01 · COVER -->
+  <section class="slide cover" id="cover">
+    <div class="ruler"></div>
+    <div class="left">
+      <div class="wm">GINPEI<span class="dot">.</span></div>
+      <div class="spec">COMPOSER<span class="d"></span>ARRANGER<span class="d"></span>PRODUCER</div>
+      <div class="tag" data-ja="音で、世界と​同じ​土俵に。" data-en="Music made to stand on the same floor.">音で、世界と​同じ​土俵に。</div>
+      <div class="tag-en">Tokyo · Dance / Pop</div>
+    </div>
+    <div class="right">
+      <img src="assets/ginpei-portrait.jpg" alt="スタジオのコンソール前に立つGINPEI" />
+      <span class="code">STUDIO · TOKYO</span>
+    </div>
+    <span class="cover-tl logo" style="position:absolute;top:auto;bottom:3.0cqw;left:3.6cqw;font-weight:500;font-size:.9cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--steel)">Official Site</span>
+    <span class="pageno">01</span>
+  </section>
+
+  <!-- 02 · CONTENTS -->
+  <section class="slide" id="index">
+    <div class="ruler"></div>
+    <div class="pad">
+      <div class="logo">GINPEI<span class="dot">.</span></div>
+      <div class="pageno">02</div>
+      <div class="title" style="margin-top:1.2cqw">CONTENTS</div>
+      <div class="rule"></div>
+      <div class="sys"><span>GINPEI · OFFICIAL</span><span class="mid">[ INDEX ]</span><span>COMPOSER / ARRANGER</span></div>
+      <nav class="toc">
+        <a href="#profile"><span class="n">03</span><span class="t" data-ja="プロフィール" data-en="Profile">プロフィール</span><span class="th">Profile</span></a>
+        <a href="#works"><span class="n">04</span><span class="t" data-ja="参加作品" data-en="Selected Works">参加作品</span><span class="th">Works</span></a>
+        <a href="#channel"><span class="n">05</span><span class="t" data-ja="チャンネル" data-en="Channel">チャンネル</span><span class="th">YouTube</span></a>
+        <a href="#connect"><span class="n">06</span><span class="t" data-ja="コンタクト" data-en="Connect">コンタクト</span><span class="th">Connect</span></a>
+      </nav>
+      <div class="disclaim">Composer · Arranger · Producer</div>
+      <div class="adg">Tokyo · 2026</div>
+    </div>
+  </section>
+
+  <!-- 03 · PROFILE -->
+  <section class="slide" id="profile">
+    <div class="ruler"></div>
+    <div class="pad">
+      <div class="logo">GINPEI<span class="dot">.</span></div>
+      <div class="pageno">03</div>
+      <div class="kick r">03 · Profile</div>
+      <div class="prof">
+        <div class="prof-fig r">
+          <img src="assets/ginpei-portrait.jpg" alt="GINPEI ポートレート" />
+          <span class="code">GINPEI · Tokyo</span>
+        </div>
+        <div class="r d1">
+          <div class="specsheet">
+            <div class="row"><span class="sl">Based</span><span class="sv">Tokyo, Japan</span></div>
+            <div class="row"><span class="sl">Field</span><span class="sv">Composition · Arrangement · Production</span></div>
+            <div class="row"><span class="sl">Genre</span><span class="sv">Dance / Pop<small data-ja="海外志向の​ダンス／ポップ" data-en="Western-leaning dance &amp; pop">海外志向の​ダンス／ポップ</small></span></div>
+            <div class="row"><span class="sl">Agency</span><span class="sv">CoWRITE<small data-ja="代表：杉山勝彦（日本レコード大賞 作曲賞・優秀作品賞）" data-en="Rep. Katsuhiko Sugiyama (Japan Record Award winner)">代表：杉山勝彦（日本レコード大賞 作曲賞・優秀作品賞）</small></span></div>
+            <div class="row"><span class="sl">Roots</span><span class="sv" data-ja="18でDJ、20で楽曲制作へ" data-en="DJ at 18, producing from 20">18でDJ、20で楽曲制作へ</span></div>
+          </div>
+          <div class="essence" data-ja="クラブの​フロアで​鳴らした​瞬間に​伝わる音を、​つくり続けている。" data-en="Making music that lands the instant it hits the floor.">クラブの​フロアで​鳴らした​瞬間に​伝わる音を、​つくり続けている。</div>
+        </div>
+      </div>
+      <div class="disclaim">Profile</div>
+      <div class="adg">03 / 06</div>
+    </div>
+  </section>
+
+  <!-- 04 · WORKS -->
+  <section class="slide" id="works">
+    <div class="ruler"></div>
+    <div class="pad">
+      <div class="logo">GINPEI<span class="dot">.</span></div>
+      <div class="pageno">04</div>
+      <div class="kick r">04 · Selected Works</div>
+      <div class="title r d1" style="text-align:left;font-size:3.6cqw;margin-top:.4cqw">DISCOGRAPHY</div>
+      <div class="cat r d1">
+        <div class="w"><span class="wn">01</span><span class="wa">Hey! Say! JUMP</span><span class="wt">Tiki Don <small>— album『PULL UP!』’23</small></span><span class="wr">作曲 · 編曲</span></div>
+        <div class="w"><span class="wn">02</span><span class="wa">櫻坂46</span><span class="wt">今さらSuddenly <small>— ’24 / 作詞 秋元康</small></span><span class="wr">作曲 · 編曲</span></div>
+        <div class="w"><span class="wn">03</span><span class="wa">ASCA</span><span class="wt">Stellar <small>— single ’23</small></span><span class="wr">作曲 · 編曲</span></div>
+        <div class="w"><span class="wn">04</span><span class="wa">矢野妃菜喜</span><span class="wt">鏡YO鏡 <small>— feat. 真山りか</small></span><span class="wr">作曲</span></div>
+        <div class="w"><span class="wn">05</span><span class="wa">TORA PROJECT</span><span class="wt">SNooZe</span><span class="wr">作曲 · 編曲</span></div>
+        <div class="w"><span class="wn">06</span><span class="wa">神納セイガ</span><span class="wt">Let's Go Party Night！</span><span class="wr">編曲</span></div>
+        <div class="w"><span class="wn">07</span><span class="wa">トグルHD</span><span class="wt">ゼロイチの前夜 <small>— brand song</small></span><span class="wr">作曲</span></div>
+      </div>
+      <div class="catfoot r d2">
+        <div class="note" data-ja="ソニーミュージック所属アーティストを​はじめとする​メジャー作品へ、​作曲・編曲で​参加。" data-en="Composition &amp; arrangement for major releases incl. Sony Music artists.">ソニーミュージック所属アーティストを​はじめとする​メジャー作品へ、​作曲・編曲で​参加。</div>
+        <div class="stamp">CoWRITE</div>
+      </div>
+      <div class="disclaim">Selected Works</div>
+      <div class="adg">04 / 06</div>
+    </div>
+  </section>
+
+  <!-- 05 · CHANNEL -->
+  <section class="slide" id="channel">
+    <div class="ruler"></div>
+    <div class="pad">
+      <div class="logo">GINPEI<span class="dot">.</span></div>
+      <div class="pageno">05</div>
+      <div class="kick r">05 · Channel · @itsGINPEI</div>
+      <div class="chan">
+        <div class="figs r d1">
+          <div class="f"><span class="fb">29,900<span style="color:var(--accent)">+</span></span><span class="fl">Subscribers</span></div>
+          <div class="f"><span class="fb">2.1<span style="font-size:2.4cqw"> M</span></span><span class="fl" data-ja="累計再生" data-en="Total views">累計再生</span></div>
+          <div class="f"><span class="fb">56</span><span class="fl" data-ja="動画本数" data-en="Films">動画本数</span></div>
+          <div class="f"><span class="fb">’19</span><span class="fl" data-ja="開設" data-en="Since">開設</span></div>
+        </div>
+        <a class="chan-fig r d2" href="https://www.youtube.com/@itsGINPEI" target="_blank" rel="noopener" aria-label="YouTube @itsGINPEI">
+          <img src="assets/bg-silhouette.jpg" alt="制作風景" />
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="cc">DTM · Dance Music Tutorials</span>
+        </a>
+      </div>
+      <div class="lede r d2" data-ja="ダンスミュージック制作の​手法を、​現場の​まま​YouTubeで​発信。" data-en="Dance-music production, shared straight from the studio on YouTube." style="margin-top:1.8cqw">ダンスミュージック制作の​手法を、​現場の​まま​YouTubeで​発信。</div>
+      <div class="disclaim">Channel</div>
+      <div class="adg">05 / 06</div>
+    </div>
+  </section>
+
+  <!-- 06 · END -->
+  <section class="slide end" id="connect">
+    <div class="et"><span>GINPEI · OFFICIAL</span><span>06 / 06</span></div>
+    <div class="ec">
+      <div class="ewm">GINPEI<span class="dot">.</span></div>
+      <div class="esub" data-ja="楽曲制作・コライト・タイアップのご相談を。" data-en="Open for composition, co-writes &amp; sync.">楽曲制作・コライト・タイアップのご相談を。</div>
+      <div class="links">
+        <a href="https://www.youtube.com/@itsGINPEI" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://x.com/itsGINPEI" target="_blank" rel="noopener">X</a>
+        <a href="https://www.instagram.com/itsginpei/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="eb"><span>Composer · Arranger · Producer</span><span>Tokyo · 2026</span></div>
+  </section>
+
 </div>
-<!-- ===================== HERO ===================== -->
-<header class="hero" id="top">
-<div class="wrap">
-<div class="hero-grid">
-<div class="hero-text">
-<span class="hero-eyebrow reveal">Composer · Arranger · Producer</span>
-<h1 class="reveal">GINPEI</h1>
-<p class="sub-en reveal">Music made to stand on the same floor.</p>
-<p class="sub-jp reveal">東京を​拠点に​活動する​作編曲家。​ダンスミュージックを​軸に​楽曲を​作り、​その​過程を​YouTubeで​伝えています。</p>
-<div class="hero-cta reveal">
-<a class="btn btn-primary" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"></path></svg>
-            YouTubeを​見る​
-          </a>
-<a class="btn btn-ghost" href="#works">実績を​見る</a>​
-</div>
-</div>
-<div class="hero-portrait reveal">
-<div aria-hidden="true" class="glow"></div>
-<div class="frame">
-<img alt="スタジオのミキシングコンソールの前に立つGINPEI" height="588" src="assets/ginpei-portrait.jpg" width="652"/>
-<span class="tag">Studio · Tokyo</span>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="scroll-cue"><span class="line"></span>Scroll</div>
-</header>
-<!-- ===================== STORY ===================== -->
-<section class="section story" id="story">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">Story</span>
-<h2>はじまりは、​薄い​音だった。</h2>
-</div>
-<div class="beats">
-<p class="beat reveal">東京の​クラブで​DJを​していた頃。​深夜1時40分、​自分の​セットの​途中で、​自作曲を​流した。</p>
-<p class="beat reveal">ミックスし始めた​瞬間に​気づいた。​音が、​明らかに​薄い。​大きな​スピーカーから​流れると、​前後の​曲との​差が​はっきり出る。​低音は​曇って、​胸に​響かない。</p>
-<p class="beat muted reveal">自分の​曲だけゲインを​無理やり​持ち上げても、​どうにもならなかった。​さっきまで​飛び跳ねていた​人たちの​動きが、​一気に​止まった。</p>
-<p class="pullquote reveal">何と​して​でも、<span class="hl">​同じ​土俵</span>に、<br/>自分の​曲を​持っていく。</p>
-<p class="now reveal">あの​夜から、​向き合っている​ことは​変わっていません。​鳴らした​瞬間に​伝わる​音を、​つくり続けています。</p>
-</div>
-</div>
-</section>
-<!-- ===================== WORKS ===================== -->
-<section class="section" id="works">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">Works</span>
-<h2>これまで​携わってきた​仕事。</h2>
-<p class="lead">作曲・編曲と​して、​メジャーアーティストの​楽曲制作に​参加してきました。​代表的な​ものを​紹介します。</p>
-</div>
-<div class="works-list">
-<div class="work reveal">
-<div class="artist">Hey! Say! JUMP</div>
-<div class="title">Tiki Don<em>アルバム『PULL UP!』収録​（2023）​／作曲共作：Fennec</em></div>
-<div class="role">作曲 · 編曲</div>
-</div>
-<div class="work reveal">
-<div class="artist">櫻坂46</div>
-<div class="title">今さら​Suddenly<em>シングル『I want tomorrow to come』収録​（2024）​／作詞：秋​元康</em></div>
-<div class="role">作曲 · 編曲</div>
-</div>
-<div class="work reveal">
-<div class="artist">ASCA</div>
-<div class="title">Stellar<em>配信シングル​（2023）​／共作：杉山勝彦</em></div>
-<div class="role">作曲 · 編曲</div>
-</div>
-<div class="work reveal">
-<div class="artist">矢野妃菜喜</div>
-<div class="title">鏡YO鏡 feat. 真山りか<em>​共作：杉山勝彦</em></div>
-<div class="role">作曲</div>
-</div>
-</div>
-<p class="works-note reveal">
-      いずれも​ソニーミュージック所属アーティストを​はじめと​する​楽曲への、​作曲・編曲と​しての​参加です。​
-      所属する​作家事務所〈<span class="agency">CoWRITE</span>〉の​代表は、​日本レコード大賞の​作曲賞・優秀作品賞を​受賞した​作詞作曲家の​杉山勝彦。​海外の​ダンス／ポップを​軸に、​楽曲制作を​続けています。​
-    </p>
-</div>
-</section>
-<!-- ===================== CHANNEL ===================== -->
-<section class="channel" id="channel">
-<div aria-hidden="true" class="channel-bg"><img alt="" src="assets/bg-silhouette.jpg"/></div>
-<div class="wrap">
-<div class="channel-inner">
-<span class="eyebrow reveal">Channel</span>
-<h2 class="reveal">制作の​過程を、​そのまま​伝える。</h2>
-<div class="stat reveal"><b>29,900+</b><span>Subscribers</span></div>
-<p class="reveal">ダンスミュージック制作の​テクニックや​考え方を、​YouTubeで​定期的に​発信しています。​現場で​使っている​手法を、​できるだけ​そのまま​届ける​ことを​大切に​しています。</p>
-<a class="btn btn-primary reveal" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"></path></svg>
-        @itsGINPEI
-      </a>
-</div>
-</div>
-</section>
-<!-- ===================== CONNECT ===================== -->
-<section class="section" id="connect">
-<div class="wrap">
-<div class="section-head reveal">
-<span class="eyebrow">Connect</span>
-<h2>つながる。</h2>
-</div>
-<div class="connect-grid">
-<a class="link-card reveal" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
-<div>
-<div class="lc-label">YouTube</div>
-<div class="lc-handle">@itsGINPEI</div>
-</div>
-<svg aria-hidden="true" class="lc-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg>
-</a>
-<a class="link-card reveal" href="https://x.com/itsGINPEI" rel="noopener" target="_blank">
-<div>
-<div class="lc-label">X (Twitter)</div>
-<div class="lc-handle">@itsGINPEI</div>
-</div>
-<svg aria-hidden="true" class="lc-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg>
-</a>
-<a class="link-card reveal" href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">
-<div>
-<div class="lc-label">Instagram</div>
-<div class="lc-handle">@itsginpei</div>
-</div>
-<svg aria-hidden="true" class="lc-arrow" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg>
-</a>
-</div>
-<p class="connect-foot reveal">
-      楽曲制作・コライト・タイアップの​ご相談は、<a href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">​Instagram</a> の​DMから​お気軽に​どうぞ。​
-    </p>
-</div>
-</section>
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-<div class="wrap">
-<div class="f-brand">
-<img alt="" height="30" src="assets/logo-mark.png" width="30"/>
-<span>GINPEI</span>
-</div>
-<div class="f-links">
-<a href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">YouTube</a>
-<a href="https://x.com/itsGINPEI" rel="noopener" target="_blank">X</a>
-<a href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">Instagram</a>
-</div>
-<div class="f-meta">© 2026 GINPEI</div>
-</div>
-</footer>
+
 <script>
 (function(){
-  // nav scrolled state
-  var nav=document.getElementById('nav');
-  var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>20); };
-  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+  // language toggle
+  var btns=document.querySelectorAll('.lang button');
+  function setLang(l){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-ja]').forEach(function(el){
+      var v=el.getAttribute('data-'+l); if(v!==null) el.innerHTML=v;
+    });
+    btns.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-lang')===l);});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});
 
-  // mobile menu
-  var btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
-  var toggle=function(open){
-    btn.classList.toggle('open',open); menu.classList.toggle('open',open);
-    btn.setAttribute('aria-expanded',open?'true':'false');
-    document.body.style.overflow=open?'hidden':'';
-  };
-  btn.addEventListener('click',function(){ toggle(!menu.classList.contains('open')); });
-  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ toggle(false); }); });
-
-  // staggered reveal on scroll
+  // reveal
   var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var items=document.querySelectorAll('.reveal');
-  if(reduce||!('IntersectionObserver' in window)){
-    items.forEach(function(el){ el.classList.add('is-visible'); });
-  } else {
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var sibs=Array.prototype.slice.call(e.target.parentNode.querySelectorAll(':scope > .reveal'));
-          var i=sibs.indexOf(e.target);
-          e.target.style.transitionDelay=(Math.max(0,i)*90)+'ms';
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        }
-      });
-    },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
-    items.forEach(function(el){ io.observe(el); });
+  var items=document.querySelectorAll('.r');
+  if(reduce||!('IntersectionObserver' in window)){items.forEach(function(e){e.classList.add('in');});}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    items.forEach(function(e){io.observe(e);});
+    // delays
+    document.querySelectorAll('.d1').forEach(function(e){e.style.transitionDelay='.08s';});
+    document.querySelectorAll('.d2').forEach(function(e){e.style.transitionDelay='.16s';});
   }
 })();
 </script>
