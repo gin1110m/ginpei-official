@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-
-<html lang="ja">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GINPEI — Composer / Arranger / Producer</title>
-<meta content="作編曲家 GINPEI オフィシャルサイト。東京拠点。Hey! Say! JUMP・櫻坂46・ASCA ほかメジャー作品へ作曲・編曲で参加。ダンス／ポップを軸に世界基準の楽曲を制作。" name="description"/>
-<meta content="website" property="og:type"/>
-<meta content="GINPEI — Composer / Arranger / Producer" property="og:title"/>
-<meta content="作編曲家 GINPEI オフィシャルサイト。" property="og:description"/>
-<meta content="assets/studio-hero.jpg" property="og:image"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link href="assets/favicon-64.png" rel="icon" type="image/png"/>
-<link href="assets/apple-touch-icon.png" rel="apple-touch-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&amp;family=Noto+Sans+JP:wght@200;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="GINPEI — Tokyo-based composer & arranger. Credits for Hey! Say! JUMP, Sakurazaka46, ASCA and more. Dance / pop, built to a global standard." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="GINPEI — Composer / Arranger / Producer" />
+<meta property="og:description" content="Tokyo-based composer & arranger. Hey! Say! JUMP, Sakurazaka46, ASCA and more." />
+<meta property="og:image" content="assets/studio-hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="assets/favicon-64.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Arimo:wght@400;500;700&family=Noto+Sans+JP:wght@200;300;400;500;700;900&display=swap" rel="stylesheet" />
 <style>
 /* ===================================================================
-   GINPEI — Official.  Dark luxury × Apple hi-tech, vertical scroll.
+   GINPEI — Official.  Dark luxury × Apple hi-tech.  EN default / JA toggle.
+   English display type references dreamtape: Bebas Neue + Helvetica.
    =================================================================== */
 :root{
   --bg:#070708; --bg-2:#0d0d10; --panel:#131318; --panel-2:#191920;
@@ -26,14 +26,16 @@
   --txt:#f3f2ef; --muted:rgba(243,242,239,.62); --faint:rgba(243,242,239,.38);
   --accent:#4A90D9; --accent-b:#6aa6e6; --glow:rgba(74,144,217,.18);
   --en:"Helvetica Neue",Helvetica,"Arimo",Arial,sans-serif;
-  --jp:"Noto Sans JP",var(--en);
-  --max:1240px;
-  --ease:cubic-bezier(.16,1,.3,1);
+  --jp:"Noto Sans JP","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --bebas:"Bebas Neue",Impact,"Helvetica Neue",sans-serif;
+  --max:1240px; --ease:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--txt);font-family:var(--jp);font-weight:300;line-height:1.8;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;letter-spacing:.01em}
+body{background:var(--bg);color:var(--txt);font-family:var(--en);font-weight:300;line-height:1.7;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;letter-spacing:.01em;
+  word-break:keep-all;overflow-wrap:anywhere}
+html[lang="ja"] body{font-family:var(--jp);line-height:1.8}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 section{position:relative}
@@ -41,31 +43,35 @@ section{position:relative}
 @media(min-width:768px){.wrap{padding:0 48px}}
 @media(min-width:1100px){.wrap{padding:0 64px}}
 
-/* film grain + ambient */
 .grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;mix-blend-mode:screen}
 .amb{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:radial-gradient(1200px 760px at 82% -10%,var(--glow),transparent 60%),
              radial-gradient(900px 700px at 8% 110%,rgba(74,144,217,.08),transparent 60%)}
 
-/* labels / kickers */
 .eyebrow{font-family:var(--en);font-weight:700;font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:var(--accent)}
-.eyebrow.muted{color:var(--faint)}
+
+/* ---------- display headings (Bebas for EN, Noto for JA) ---------- */
+.disp{font-family:var(--bebas);font-weight:400;letter-spacing:.005em;text-transform:uppercase;line-height:.92;
+  font-size:clamp(2.7rem,7vw,5rem)}
+html[lang="ja"] .disp{font-family:var(--jp);font-weight:900;text-transform:none;letter-spacing:-.02em;line-height:1.18;
+  font-size:clamp(2rem,5.2vw,3.4rem)}
 
 /* ---------- nav ---------- */
 .nav{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;justify-content:space-between;
-  padding:18px 24px;background:rgba(7,7,8,.0);backdrop-filter:blur(0px);
-  transition:background-color .4s var(--ease),backdrop-filter .4s var(--ease),border-color .4s var(--ease);
-  border-bottom:1px solid transparent}
+  padding:18px 24px;background:rgba(7,7,8,0);backdrop-filter:blur(0);border-bottom:1px solid transparent;
+  transition:background-color .4s var(--ease),backdrop-filter .4s var(--ease),border-color .4s var(--ease)}
 @media(min-width:768px){.nav{padding:20px 48px}}
 .nav.s{background:rgba(7,7,8,.72);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--en);font-weight:700;font-size:1.04rem;letter-spacing:.3em;padding-left:.3em}
 .brand img{width:24px;height:24px;opacity:.95}
-.nlinks{display:none;gap:34px;align-items:center}
+.nright{display:flex;align-items:center;gap:22px}
+.nlinks{display:none;gap:32px;align-items:center}
 @media(min-width:900px){.nlinks{display:flex}}
-.nlinks a{font-family:var(--en);font-weight:500;font-size:.82rem;letter-spacing:.14em;color:var(--muted);transition:color .15s}
+.nlinks a{font-family:var(--en);font-weight:500;font-size:.82rem;letter-spacing:.14em;color:var(--muted);transition:color .15s;text-transform:uppercase}
 .nlinks a:hover{color:var(--txt)}
-.nlinks .cta{color:var(--txt);border:1px solid var(--line-2);border-radius:999px;padding:.5rem 1.2rem;transition:border-color .15s,background-color .15s}
-.nlinks .cta:hover{border-color:var(--accent);background:var(--glow)}
+.lang{display:flex;border:1px solid var(--line-2);border-radius:999px;overflow:hidden;font-family:var(--en);font-weight:700;font-size:.66rem;letter-spacing:.08em}
+.lang button{background:none;border:0;padding:7px 11px;cursor:pointer;color:var(--muted);font:inherit;min-height:34px;transition:background-color .2s,color .2s}
+.lang button.on{background:var(--txt);color:var(--bg)}
 .burger{display:flex;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
 @media(min-width:900px){.burger{display:none}}
 .burger span{width:22px;height:1.5px;background:var(--txt);transition:transform .3s var(--ease),opacity .3s}
@@ -73,9 +79,9 @@ section{position:relative}
 .burger.o span:nth-child(2){opacity:0}
 .burger.o span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 .mob{position:fixed;inset:0;z-index:55;background:rgba(7,7,8,.97);backdrop-filter:blur(24px);display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:30px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
+  align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .35s var(--ease)}
 .mob.o{opacity:1;pointer-events:auto}
-.mob a{font-family:var(--en);font-weight:500;font-size:1.7rem;letter-spacing:.08em;color:var(--txt)}
+.mob a{font-family:var(--en);font-weight:500;font-size:1.6rem;letter-spacing:.1em;color:var(--txt);text-transform:uppercase}
 
 /* ---------- hero ---------- */
 .hero{min-height:100svh;display:flex;align-items:flex-end;position:relative;overflow:hidden;padding-bottom:9vh}
@@ -84,73 +90,110 @@ section{position:relative}
 .hero-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(7,7,8,.55) 0%,rgba(7,7,8,.2) 32%,rgba(7,7,8,.72) 78%,rgba(7,7,8,.98) 100%)}
 .hero-inner{position:relative;width:100%}
-.hero h1{font-family:var(--en);font-weight:700;font-size:clamp(4.6rem,17vw,12rem);line-height:.88;letter-spacing:-.045em;margin:.5rem 0 1.1rem}
+.hero h1{font-family:var(--en);font-weight:700;font-size:clamp(4.6rem,17vw,12rem);line-height:.86;letter-spacing:-.045em;margin:.5rem 0 1.1rem}
 .hero h1 .dot{color:var(--accent)}
 .hero .spec{display:flex;flex-wrap:wrap;gap:.7rem 1.3rem;align-items:center;font-family:var(--en);font-weight:500;font-size:.84rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem}
 .hero .spec .d{width:4px;height:4px;border-radius:50%;background:var(--accent)}
-.hero .sub{font-size:1.04rem;line-height:1.85;color:var(--muted);max-width:34em}
+.hero .sub{font-size:1.04rem;line-height:1.8;color:var(--muted);max-width:40em}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .cuewrap{position:absolute;left:50%;bottom:2.2rem;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:.5rem;
   font-family:var(--en);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--faint)}
 .cuewrap .l{width:1px;height:36px;background:linear-gradient(var(--faint),transparent);animation:cue 2.2s var(--ease) infinite}
 @keyframes cue{0%{transform:scaleY(.15);transform-origin:top;opacity:0}40%{opacity:1}100%{transform:scaleY(1);transform-origin:top;opacity:0}}
 
-/* buttons */
-.btn{font-family:var(--jp);font-weight:500;font-size:.95rem;letter-spacing:.03em;border-radius:999px;padding:.92rem 1.8rem;min-height:48px;
+.btn{font-family:var(--en);font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:.92rem 1.8rem;min-height:48px;
   display:inline-flex;align-items:center;gap:.55rem;cursor:pointer;border:1px solid transparent;
   transition:background-color .18s,border-color .18s,box-shadow .18s,color .18s}
+html[lang="ja"] .btn{font-family:var(--jp);text-transform:none;letter-spacing:.03em}
 .btn svg{width:17px;height:17px}
 .btn-p{background:var(--accent);color:#fff}
 .btn-p:hover{background:var(--accent-b);box-shadow:0 0 0 5px var(--glow)}
 .btn-g{border-color:var(--line-2);color:var(--txt)}
 .btn-g:hover{border-color:var(--accent);background:var(--glow)}
 
-/* ---------- generic section ---------- */
 .sec{padding:clamp(6rem,13vw,12rem) 0}
-.sec-head{max-width:760px;margin-bottom:clamp(3rem,6vw,5rem)}
+.sec-head{max-width:820px;margin-bottom:clamp(3rem,6vw,5rem)}
 .sec-head .eyebrow{display:inline-block;margin-bottom:1.5rem}
-.sec-head h2{font-family:var(--jp);font-weight:900;font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1.18;letter-spacing:-.02em}
-.sec-head .lead{margin-top:1.4rem;color:var(--muted);font-size:1.06rem;line-height:1.9;max-width:42em}
+.sec-head .lead{margin-top:1.4rem;color:var(--muted);font-size:1.06rem;line-height:1.8;max-width:46em}
 
-/* ---------- statement (big type) ---------- */
+/* ---------- statement ---------- */
 .statement{padding:clamp(7rem,15vw,14rem) 0;border-top:1px solid var(--line)}
-.statement p{font-family:var(--jp);font-weight:300;font-size:clamp(1.7rem,4.6vw,3.2rem);line-height:1.5;letter-spacing:-.01em;max-width:20em}
+.statement p{font-weight:300;font-size:clamp(1.7rem,4.6vw,3.2rem);line-height:1.4;letter-spacing:-.01em;max-width:24em}
+html[lang="ja"] .statement p{font-family:var(--jp);line-height:1.5;max-width:20em}
 .statement .hl{color:var(--accent);font-weight:500}
-.statement .small{display:block;margin-top:2.4rem;font-size:1rem;color:var(--faint);font-weight:400;letter-spacing:.02em;max-width:40em;line-height:1.9}
+.statement .small{display:block;margin-top:2.4rem;font-size:1rem;color:var(--faint);font-weight:400;letter-spacing:.01em;max-width:44em;line-height:1.85}
 
-/* ---------- works (rich list) ---------- */
+/* ---------- works (artwork-blended rows) ---------- */
 .works{border-top:1px solid var(--line)}
 .wlist{border-top:1px solid var(--line-2)}
-.work{display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.4rem;padding:2.1rem .4rem;border-bottom:1px solid var(--line);
-  transition:background-color .4s var(--ease),padding-left .4s var(--ease)}
-.work:hover{background:rgba(255,255,255,.018);padding-left:1.1rem}
-.work .wn{font-family:var(--en);font-weight:700;font-size:.78rem;letter-spacing:.18em;color:var(--accent);padding-top:.5rem;min-width:2.4rem}
-.work .wmain{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem}
-.work .wartist{font-family:var(--jp);font-weight:700;font-size:clamp(1.3rem,3vw,1.85rem);letter-spacing:-.01em;color:var(--txt)}
-.work .wtitle{font-size:1.06rem;color:var(--muted);font-weight:400}
-.work .wmeta{width:100%;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.85rem;align-items:center}
-.tag{font-family:var(--en);font-weight:500;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;
-  padding:.34rem .8rem;border-radius:999px;border:1px solid var(--line-2);color:var(--muted)}
-.tag.role{color:var(--accent);border-color:rgba(74,144,217,.4);background:var(--glow)}
-.tag.year{color:var(--faint)}
-.works-note{margin-top:2.6rem;color:var(--muted);font-size:1rem;line-height:1.9;max-width:46em}
+.work{position:relative;display:block;overflow:hidden;border-bottom:1px solid var(--line);
+  transition:background-color .4s var(--ease)}
+.work .art{position:absolute;top:0;right:0;bottom:0;width:62%;z-index:0;
+  background-size:cover;background-position:50% 28%;opacity:.62;transform:scale(1.02);
+  transition:opacity .6s var(--ease),transform 3.2s var(--ease);filter:saturate(1.06)}
+.work::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,var(--bg) 26%,rgba(7,7,8,.78) 50%,rgba(7,7,8,.32) 82%,rgba(7,7,8,.62) 100%)}
+.work:hover{background:rgba(255,255,255,.012)}
+.work:hover .art{opacity:.86;transform:scale(1.07)}
+.wbody{position:relative;z-index:2;display:grid;grid-template-columns:auto 1fr auto;gap:.1rem 1.4rem;align-items:center;
+  padding:2rem .5rem;min-height:128px}
+.wn{font-family:var(--bebas);font-size:1.5rem;letter-spacing:.05em;color:var(--accent);align-self:start;padding-top:.25rem;min-width:2.2rem}
+.wmain{display:flex;flex-direction:column;gap:.35rem}
+.wartist{font-family:var(--en);font-weight:700;font-size:clamp(1.35rem,3vw,2rem);letter-spacing:-.01em;color:var(--txt);line-height:1.05}
+html[lang="ja"] .wartist{font-family:var(--jp)}
+.wtitle{font-size:1.02rem;color:var(--muted);font-weight:400}
+.wmeta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;align-items:center}
+.tag{font-family:var(--en);font-weight:500;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+  padding:.32rem .72rem;border-radius:999px;border:1px solid var(--line-2);color:var(--muted);background:rgba(7,7,8,.35);backdrop-filter:blur(4px)}
+.tag.role{color:var(--accent);border-color:rgba(74,144,217,.45);background:rgba(74,144,217,.12)}
+.wyear{font-family:var(--bebas);font-size:1.4rem;letter-spacing:.06em;color:var(--faint);align-self:start;padding-top:.3rem}
+.wplay{position:relative;z-index:2;align-self:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:center;flex:none;transition:background-color .3s,border-color .3s}
+.work:hover .wplay{background:var(--accent);border-color:var(--accent)}
+.wplay svg{width:15px;height:15px;fill:var(--txt);margin-left:2px}
+.work:hover .wplay svg{fill:#fff}
+.works-note{margin-top:2.6rem;color:var(--muted);font-size:1rem;line-height:1.8;max-width:48em}
 .works-note b{color:var(--txt);font-weight:700}
+@media(max-width:680px){
+  .wbody{grid-template-columns:auto 1fr;gap:.1rem .9rem}
+  .wyear{display:none}
+  .work .art{width:72%;opacity:.5}
+  .work::before{background:linear-gradient(90deg,var(--bg) 20%,rgba(7,7,8,.82) 52%,rgba(7,7,8,.55) 100%)}
+}
 
-/* ---------- cinematic full-bleed divider ---------- */
-.cine{height:min(86vh,760px);display:flex;align-items:center;position:relative;overflow:hidden}
-.cine-bg{position:absolute;inset:0;z-index:-1}
-.cine-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.05)}
-.cine-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.92),rgba(7,7,8,.45) 60%,rgba(7,7,8,.7))}
-.cine .quote{font-family:var(--jp);font-weight:300;font-size:clamp(1.6rem,4.4vw,3rem);line-height:1.45;letter-spacing:-.01em;max-width:18em}
-.cine .quote .hl{color:var(--accent)}
-.cine .cap{margin-top:1.6rem;font-family:var(--en);font-weight:500;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+/* ---------- listen ---------- */
+.listen{border-top:1px solid var(--line)}
+.players{display:grid;grid-template-columns:1fr;gap:1.4rem}
+@media(min-width:840px){.players{grid-template-columns:1fr 1fr}}
+.player{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.1rem;transition:border-color .4s var(--ease)}
+.player:hover{border-color:var(--line-2)}
+.pcap{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.1rem .2rem 1rem}
+.pcap .pa{font-family:var(--en);font-weight:700;font-size:.98rem;color:var(--txt)}
+.pcap .pr{font-family:var(--en);font-weight:500;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);
+  border:1px solid rgba(74,144,217,.4);background:var(--glow);border-radius:999px;padding:.3rem .7rem;white-space:nowrap}
+.player iframe{display:block;width:100%;border:0;border-radius:12px}
 
-/* ---------- channel ---------- */
-.chan{border-top:1px solid var(--line)}
+/* ---------- youtube ---------- */
+.ytfeature{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-bottom:1.2rem;background:#000}
+.ytfeature iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ytcap{font-family:var(--en);font-weight:500;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 1.8rem}
+.ytgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:3rem}
+@media(min-width:840px){.ytgrid{grid-template-columns:repeat(4,1fr)}}
+.ytgrid:empty{display:none}
+.ytcard{display:block;transition:transform .4s var(--ease)}
+.ytcard:hover{transform:translateY(-4px)}
+.ytcard .thumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
+.ytcard .thumb img{width:100%;height:100%;object-fit:cover;opacity:.86;transition:opacity .3s}
+.ytcard:hover .thumb img{opacity:1}
+.ytcard .thumb .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(74,144,217,.92);display:flex;align-items:center;justify-content:center}
+.ytcard .thumb .pl svg{width:16px;height:16px;fill:#fff;margin-left:2px}
+.ytcard .yt-t{margin-top:.8rem;font-size:.85rem;line-height:1.5;color:var(--muted);font-weight:400}
+
+/* ---------- channel stats ---------- */
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:3rem;border-radius:16px;overflow:hidden}
 @media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
 .stat{background:var(--bg-2);padding:2.2rem 1.6rem;display:flex;flex-direction:column;gap:.5rem}
-.stat b{font-family:var(--en);font-weight:700;font-size:clamp(2.2rem,5vw,3.1rem);letter-spacing:-.03em;line-height:1;color:var(--txt)}
+.stat b{font-family:var(--bebas);font-weight:400;font-size:clamp(2.6rem,6vw,3.8rem);letter-spacing:.01em;line-height:.9;color:var(--txt)}
 .stat span{font-family:var(--en);font-weight:500;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
 
 /* ---------- about ---------- */
@@ -159,11 +202,12 @@ section{position:relative}
 @media(min-width:880px){.about-grid{grid-template-columns:.85fr 1.15fr;gap:5rem;align-items:center}}
 .about-fig{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel)}
 .about-fig img{width:100%;filter:saturate(.95)}
-.about-fig .tag{position:absolute;left:1rem;bottom:1rem;background:rgba(7,7,8,.55);backdrop-filter:blur(6px)}
+.about-fig .ftag{position:absolute;left:1rem;bottom:1rem;font-family:var(--en);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--txt);background:rgba(7,7,8,.55);backdrop-filter:blur(6px);padding:.35rem .7rem;border-radius:8px;border:1px solid var(--line)}
 .specsheet{border-top:1px solid var(--line-2)}
 .srow{display:grid;grid-template-columns:9rem 1fr;gap:1.4rem;padding:1.2rem 0;border-bottom:1px solid var(--line)}
 .srow .sl{font-family:var(--en);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);padding-top:.25rem}
-.srow .sv{font-size:1.05rem;color:var(--txt);line-height:1.6}
+.srow .sv{font-size:1.05rem;color:var(--txt);line-height:1.55}
+html[lang="ja"] .srow .sv{font-family:var(--jp)}
 .srow .sv small{display:block;color:var(--muted);font-size:.9rem;font-weight:300;margin-top:.2rem}
 
 /* ---------- connect / footer ---------- */
@@ -176,7 +220,7 @@ section{position:relative}
 .clink .cl-h{font-family:var(--en);font-weight:500;font-size:1.2rem;color:var(--txt)}
 .clink svg{width:24px;height:24px;color:var(--accent);transition:transform .3s var(--ease)}
 .clink:hover svg{transform:translate(3px,-3px)}
-.cfoot{margin-top:3rem;color:var(--muted);font-size:1rem;line-height:1.9}
+.cfoot{margin-top:3rem;color:var(--muted);font-size:1rem;line-height:1.8}
 .cfoot a{color:var(--accent);border-bottom:1px solid var(--glow)}
 .footer{border-top:1px solid var(--line);padding:3rem 0}
 .footer .wrap{display:flex;flex-direction:column;gap:1.2rem}
@@ -185,262 +229,245 @@ section{position:relative}
 .footer .fb img{width:26px;height:26px;opacity:.9}
 .footer .fm{font-family:var(--en);color:var(--faint);font-size:.78rem;letter-spacing:.08em}
 
-/* ---------- listen (embeds) ---------- */
-.listen{border-top:1px solid var(--line)}
-.players{display:grid;grid-template-columns:1fr;gap:1.4rem}
-@media(min-width:840px){.players{grid-template-columns:1fr 1fr}}
-.player{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:1.1rem;transition:border-color .4s var(--ease)}
-.player:hover{border-color:var(--line-2)}
-.pcap{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:.1rem .2rem 1rem}
-.pcap .pa{font-family:var(--en);font-weight:700;font-size:.98rem;letter-spacing:.005em;color:var(--txt)}
-.pcap .pr{font-family:var(--en);font-weight:500;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(74,144,217,.4);background:var(--glow);border-radius:999px;padding:.3rem .7rem;white-space:nowrap}
-.player iframe{display:block;width:100%;border:0;border-radius:12px}
-.listen-note{margin-top:2rem;color:var(--faint);font-size:.86rem;letter-spacing:.02em}
-
-/* ---------- youtube embeds ---------- */
-.ytfeature{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-bottom:2.2rem;background:#000}
-.ytfeature iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.ytcap{font-family:var(--en);font-weight:500;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:-1.2rem 0 1.8rem}
-.ytgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:3rem}
-.ytgrid:empty{display:none}
-@media(min-width:840px){.ytgrid{grid-template-columns:repeat(4,1fr)}}
-.ytcard{display:block;transition:transform .4s var(--ease)}
-.ytcard:hover{transform:translateY(-4px)}
-.ytcard .thumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#000}
-.ytcard .thumb img{width:100%;height:100%;object-fit:cover;opacity:.86;transition:opacity .3s}
-.ytcard:hover .thumb img{opacity:1}
-.ytcard .thumb .pl{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:rgba(74,144,217,.92);display:flex;align-items:center;justify-content:center}
-.ytcard .thumb .pl svg{width:16px;height:16px;fill:#fff;margin-left:2px}
-.ytcard .yt-t{margin-top:.8rem;font-size:.85rem;line-height:1.5;color:var(--muted);font-weight:400}
-
-/* reveal */
 .r{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .r.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}.r{opacity:1!important;transform:none!important;transition:none!important}.cuewrap{display:none}.hero-bg img{transform:none}}
 </style>
-<style id="budoux-style">body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict;}</style></head>
+</head>
 <body>
-<div aria-hidden="true" class="amb"></div>
-<svg aria-hidden="true" class="grain" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feturbulence basefrequency="0.9" numoctaves="2" stitchtiles="stitch" type="fractalNoise"></feturbulence></filter><rect filter="url(#n)" height="100%" width="100%"></rect></svg>
+<div class="amb" aria-hidden="true"></div>
+<svg class="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
 <nav class="nav" id="nav">
-<a class="brand" href="#top"><img alt="" height="24" src="assets/logo-mark.png" width="24"/><span>GINPEI</span></a>
-<div class="nlinks">
-<a href="#works">Works</a>
-<a href="#listen">Listen</a>
-<a href="#channel">Channel</a>
-<a href="#about">About</a>
-<a class="cta" href="#connect">Connect</a>
-</div>
-<button aria-expanded="false" aria-label="メニュー" class="burger" id="burger"><span></span><span></span><span></span></button>
+  <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="24" height="24" /><span>GINPEI</span></a>
+  <div class="nright">
+    <div class="nlinks">
+      <a href="#works">Works</a>
+      <a href="#listen">Listen</a>
+      <a href="#channel">Channel</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button data-lang="en" class="on">EN</button>
+      <button data-lang="ja">日本語</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 <div class="mob" id="mob">
-<a href="#works">Works</a><a href="#listen">Listen</a><a href="#channel">Channel</a><a href="#about">About</a><a href="#connect">Connect</a>
+  <a href="#works">Works</a><a href="#listen">Listen</a><a href="#channel">Channel</a><a href="#about">About</a><a href="#connect">Connect</a>
 </div>
+
 <!-- HERO -->
 <header class="hero" id="top">
-<div class="hero-bg"><img alt="GINPEIのスタジオ" src="assets/studio-hero.jpg"/></div>
-<div class="wrap hero-inner">
-<div class="spec r"><span>Composer</span><span class="d"></span><span>Arranger</span><span class="d"></span><span>Producer</span></div>
-<h1 class="r">GINPEI<span class="dot">.</span></h1>
-<p class="sub r">東京を​拠点に​活動する​作編曲家。​Hey! Say! JUMP、​櫻坂46、​ASCA を​はじめと​する​メジャー作品へ作曲・編曲で​参加。​ダンス／ポップを​軸に、​世界基準の​楽曲を​制作しています。</p>
-<div class="hero-cta r">
-<a class="btn btn-p" href="#listen">
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>作品を​聴く</a>​
-<a class="btn btn-g" href="#works">実績を​見る</a>​
-</div>
-</div>
-<div aria-hidden="true" class="cuewrap"><span class="l"></span>Scroll</div>
+  <div class="hero-bg"><img src="assets/studio-hero.jpg" alt="GINPEI studio" /></div>
+  <div class="wrap hero-inner">
+    <div class="spec r"><span>Composer</span><span class="d"></span><span>Arranger</span><span class="d"></span><span>Producer</span></div>
+    <h1 class="r">GINPEI<span class="dot">.</span></h1>
+    <p class="sub r" data-en="Tokyo-based composer &amp; arranger. Credits for Hey! Say! JUMP, Sakurazaka46 and ASCA — composition and arrangement for major releases, built to a global dance-pop standard." data-ja="東京を拠点に活動する作編曲家。Hey! Say! JUMP、櫻坂46、ASCA をはじめとするメジャー作品へ作曲・編曲で参加。ダンス／ポップを軸に、世界基準の楽曲を制作しています。">Tokyo-based composer &amp; arranger. Credits for Hey! Say! JUMP, Sakurazaka46 and ASCA — composition and arrangement for major releases, built to a global dance-pop standard.</p>
+    <div class="hero-cta r">
+      <a class="btn btn-p" href="#listen"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span data-en="Listen" data-ja="作品を聴く">Listen</span></a>
+      <a class="btn btn-g" href="#works"><span data-en="View works" data-ja="実績を見る">View works</span></a>
+    </div>
+  </div>
+  <div class="cuewrap" aria-hidden="true"><span class="l"></span>Scroll</div>
 </header>
+
 <!-- STATEMENT -->
 <section class="statement">
-<div class="wrap">
-<p class="r">鳴らした​瞬間に、<span class="hl">​伝わる​音</span>を。​
-      <span class="small">クラブの​フロアで​音を​鳴らしていた​頃から、​向き合っている​ことは​変わらない。​大きな​スピーカーから​流れた​一音が、​その​場の​空気を​変えるか​どうか。​世界の​第一線と​同じ​土俵で​勝負できる​楽曲を、​つくり続けています。</span>​
-</p>
-</div>
+  <div class="wrap">
+    <p class="r"
+       data-en="Music that lands <span class='hl'>the moment</span> it plays.<span class='small'>From the club floor to major releases, the question has never changed — does one sound move the room the instant it hits? I keep making records built to stand on the same stage as the world's best.</span>"
+       data-ja="鳴らした瞬間に、<span class='hl'>伝わる音</span>を。<span class='small'>クラブのフロアで音を鳴らしていた頃から、向き合っていることは変わらない。一音が、その場の空気を変えるかどうか。世界の第一線と同じ土俵で勝負できる楽曲を、つくり続けています。</span>">Music that lands <span class="hl">the moment</span> it plays.<span class="small">From the club floor to major releases, the question has never changed — does one sound move the room the instant it hits? I keep making records built to stand on the same stage as the world's best.</span></p>
+  </div>
 </section>
+
 <!-- WORKS -->
 <section class="sec works" id="works">
-<div class="wrap">
-<div class="sec-head r">
-<span class="eyebrow">Selected Works</span>
-<h2>これまで​携わってきた、<br/>メジャー作品。</h2>
-<p class="lead">作曲・編曲と​して​参加した​代表的な​クレジット。​所属する​作家事務所〈CoWRITE〉を​通じ、​第一線の​アーティストへ​楽曲を​提供しています。</p>
-</div>
-<div class="wlist">
-<div class="work r">
-<div class="wn">01</div>
-<div class="wmain">
-<span class="wartist">Hey! Say! JUMP</span><span class="wtitle">Tiki Don</span>
-<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">アルバム『PULL UP!』</span><span class="tag year">2023</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">02</div>
-<div class="wmain">
-<span class="wartist">櫻坂46</span><span class="wtitle">今さら​Suddenly</span>
-<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">作詞：秋​元康</span><span class="tag">『I want tomorrow to come』</span><span class="tag year">2024</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">03</div>
-<div class="wmain">
-<span class="wartist">ASCA</span><span class="wtitle">Stellar</span>
-<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2023</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">04</div>
-<div class="wmain">
-<span class="wartist">矢野妃菜喜</span><span class="wtitle">鏡YO鏡 feat. 真山りか</span>
-<div class="wmeta"><span class="tag role">作曲</span><span class="tag">共作：杉山勝彦</span><span class="tag year">2025</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">05</div>
-<div class="wmain">
-<span class="wartist">TORA PROJECT</span><span class="wtitle">SNooZe</span>
-<div class="wmeta"><span class="tag role">作曲</span><span class="tag role">編曲</span><span class="tag year">2025</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">06</div>
-<div class="wmain">
-<span class="wartist">神納セイガ</span><span class="wtitle">Let's Go Party Night！</span>
-<div class="wmeta"><span class="tag role">編曲</span><span class="tag year">2023</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">07</div>
-<div class="wmain">
-<span class="wartist">トグルホールディングス</span><span class="wtitle">ゼロイチの​前夜</span>
-<div class="wmeta"><span class="tag role">作曲</span><span class="tag">ブランドソング</span><span class="tag year">2022</span></div>
-</div>
-</div>
-<div class="work r">
-<div class="wn">08</div>
-<div class="wmain">
-<span class="wartist">ArodnaP</span><span class="wtitle">誹謗中傷対策マニュアル</span>
-<div class="wmeta"><span class="tag role">編曲</span><span class="tag">名義：GHIN</span></div>
-</div>
-</div>
-</div>
-<p class="works-note r">ほか、<b>​ソニーミュージック所属アーティスト</b>を​はじめと​する​メジャー作品へ作曲・編曲で​参加。​所属事務所〈<b>CoWRITE</b>〉代表は、​日本レコード大賞 作曲賞・優秀作品賞を​受賞した​杉山勝彦。</p>
-</div>
+  <div class="wrap">
+    <div class="sec-head r">
+      <span class="eyebrow">Selected Works</span>
+      <h2 class="disp" data-en="Discography" data-ja="提供作品">Discography</h2>
+      <p class="lead" data-en="Composition and arrangement for first-call artists, through the writing house CoWRITE." data-ja="作曲・編曲として第一線のアーティストへ。所属作家事務所〈CoWRITE〉を通じて楽曲を提供しています。">Composition and arrangement for first-call artists, through the writing house CoWRITE.</p>
+    </div>
+    <div class="wlist">
+      <a class="work r" href="https://open.spotify.com/track/1xfc6F0xtrWt5l7vIUY3MN" target="_blank" rel="noopener">
+        <div class="art" style="background-image:url(assets/art/art-01.jpg)"></div>
+        <div class="wbody">
+          <div class="wn">01</div>
+          <div class="wmain">
+            <span class="wartist">Hey! Say! JUMP</span>
+            <span class="wtitle">Tiki Don — <i>PULL UP!</i></span>
+            <div class="wmeta"><span class="tag role" data-en="Composition" data-ja="作曲">Composition</span><span class="tag role" data-en="Arrangement" data-ja="編曲">Arrangement</span></div>
+          </div>
+          <div class="wyear">’23</div>
+          <span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+      </a>
+      <a class="work r" href="https://open.spotify.com/track/51jGTlFATxIOcpVI2yhr1f" target="_blank" rel="noopener">
+        <div class="art" style="background-image:url(assets/art/art-02.jpg)"></div>
+        <div class="wbody">
+          <div class="wn">02</div>
+          <div class="wmain">
+            <span class="wartist" data-en="Sakurazaka46" data-ja="櫻坂46">Sakurazaka46</span>
+            <span class="wtitle">今さらSuddenly</span>
+            <div class="wmeta"><span class="tag role" data-en="Composition" data-ja="作曲">Composition</span><span class="tag role" data-en="Arrangement" data-ja="編曲">Arrangement</span><span class="tag" data-en="Lyrics: Y. Akimoto" data-ja="作詞：秋元康">Lyrics: Y. Akimoto</span></div>
+          </div>
+          <div class="wyear">’24</div>
+          <span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+      </a>
+      <a class="work r" href="https://open.spotify.com/track/01wMZwVwyansbVRoo1Nf7D" target="_blank" rel="noopener">
+        <div class="art" style="background-image:url(assets/art/art-03.jpg)"></div>
+        <div class="wbody">
+          <div class="wn">03</div>
+          <div class="wmain">
+            <span class="wartist">ASCA</span>
+            <span class="wtitle">Stellar</span>
+            <div class="wmeta"><span class="tag role" data-en="Composition" data-ja="作曲">Composition</span><span class="tag role" data-en="Arrangement" data-ja="編曲">Arrangement</span></div>
+          </div>
+          <div class="wyear">’23</div>
+          <span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+      </a>
+      <a class="work r" href="https://open.spotify.com/track/455hSvAoxGtbDJ35Oa00ou" target="_blank" rel="noopener">
+        <div class="art" style="background-image:url(assets/art/art-04.jpg)"></div>
+        <div class="wbody">
+          <div class="wn">04</div>
+          <div class="wmain">
+            <span class="wartist" data-en="Hinaki Yano" data-ja="矢野妃菜喜">Hinaki Yano</span>
+            <span class="wtitle">鏡YO鏡 (feat. 真山りか)</span>
+            <div class="wmeta"><span class="tag role" data-en="Composition" data-ja="作曲">Composition</span></div>
+          </div>
+          <div class="wyear">’25</div>
+          <span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+      </a>
+      <a class="work r" href="https://open.spotify.com/track/7uj4nWBIomDoClIBOr8CWj" target="_blank" rel="noopener">
+        <div class="art" style="background-image:url(assets/art/art-05.jpg)"></div>
+        <div class="wbody">
+          <div class="wn">05</div>
+          <div class="wmain">
+            <span class="wartist">TORA PROJECT</span>
+            <span class="wtitle">SNooZe</span>
+            <div class="wmeta"><span class="tag role" data-en="Composition" data-ja="作曲">Composition</span><span class="tag role" data-en="Arrangement" data-ja="編曲">Arrangement</span></div>
+          </div>
+          <div class="wyear">’25</div>
+          <span class="wplay"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+      </a>
+    </div>
+    <p class="works-note r" data-en="Also: compositions and arrangements for Sony Music artists and more. Agency — <b>CoWRITE</b>, headed by Katsuhiko Sugiyama, a Japan Record Award winner (Composition Award &amp; Excellent Work Award)." data-ja="ほか、<b>ソニーミュージック所属アーティスト</b>をはじめとするメジャー作品へ作曲・編曲で参加。所属事務所〈<b>CoWRITE</b>〉代表は、日本レコード大賞 作曲賞・優秀作品賞を受賞した杉山勝彦。">Also: compositions and arrangements for Sony Music artists and more. Agency — <b>CoWRITE</b>, headed by Katsuhiko Sugiyama, a Japan Record Award winner (Composition Award &amp; Excellent Work Award).</p>
+  </div>
 </section>
+
 <!-- LISTEN -->
 <section class="sec listen" id="listen">
-<div class="wrap">
-<div class="sec-head r">
-<span class="eyebrow">Listen</span>
-<h2>作品を、​聴く。</h2>
-<p class="lead">作曲・編曲で​参加した​楽曲を、​各プラットフォームで​そのまま​再生できます。</p>
-</div>
-<div class="players">
-<div class="player r"><div class="pcap"><span class="pa">Hey! Say! JUMP — Tiki Don</span><span class="pr">作曲・編曲</span></div>
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/1xfc6F0xtrWt5l7vIUY3MN?theme=0" style="width:100%"></iframe></div>
-<div class="player r"><div class="pcap"><span class="pa">櫻坂46 — 今さら​Suddenly</span><span class="pr">作曲・編曲</span></div>
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/51jGTlFATxIOcpVI2yhr1f?theme=0" style="width:100%"></iframe></div>
-<div class="player r"><div class="pcap"><span class="pa">ASCA — Stellar</span><span class="pr">作曲・編曲</span></div>
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/01wMZwVwyansbVRoo1Nf7D?theme=0" style="width:100%"></iframe></div>
-<div class="player r"><div class="pcap"><span class="pa">矢野妃菜喜 — 鏡YO鏡 feat. 真山りか</span><span class="pr">​作曲</span></div>
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/455hSvAoxGtbDJ35Oa00ou?theme=0" style="width:100%"></iframe></div>
-<div class="player r"><div class="pcap"><span class="pa">TORA PROJECT — SNooZe</span><span class="pr">作曲・編曲</span></div>
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/7uj4nWBIomDoClIBOr8CWj?theme=0" style="width:100%"></iframe></div>
-<div class="player r"><div class="pcap"><span class="pa">トグルHD — ゼロイチの​前夜</span><span class="pr">作曲</span></div>
-<iframe allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen="" height="152" loading="lazy" src="https://open.spotify.com/embed/track/3fMNMkic1ZHHHzfmtgfuLr?theme=0" style="width:100%"></iframe></div>
-<div class="player r"><div class="pcap"><span class="pa">神納セイガ — Let's Go Party Night！</span><span class="pr">​編曲</span></div>
-<iframe allow="autoplay *; encrypted-media *;" height="175" loading="lazy" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/jp/song/1682007531" style="width:100%;border-radius:12px"></iframe></div>
-</div>
-<p class="listen-note r">※ 神納セイガのみ​ Apple Music、​ほかは​ Spotify で​再生。</p>
-</div>
+  <div class="wrap">
+    <div class="sec-head r">
+      <span class="eyebrow">Listen</span>
+      <h2 class="disp" data-en="Play" data-ja="作品を聴く">Play</h2>
+      <p class="lead" data-en="Tracks written and arranged by GINPEI — play them right here." data-ja="作曲・編曲で参加した楽曲を、ここでそのまま再生できます。">Tracks written and arranged by GINPEI — play them right here.</p>
+    </div>
+    <div class="players">
+      <div class="player r"><div class="pcap"><span class="pa">Hey! Say! JUMP — Tiki Don</span><span class="pr" data-en="Comp. / Arr." data-ja="作曲・編曲">Comp. / Arr.</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/1xfc6F0xtrWt5l7vIUY3MN?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">Sakurazaka46 — 今さらSuddenly</span><span class="pr" data-en="Comp. / Arr." data-ja="作曲・編曲">Comp. / Arr.</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/51jGTlFATxIOcpVI2yhr1f?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">ASCA — Stellar</span><span class="pr" data-en="Comp. / Arr." data-ja="作曲・編曲">Comp. / Arr.</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/01wMZwVwyansbVRoo1Nf7D?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r"><div class="pcap"><span class="pa">Hinaki Yano — 鏡YO鏡</span><span class="pr" data-en="Composition" data-ja="作曲">Composition</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/455hSvAoxGtbDJ35Oa00ou?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="player r" style="grid-column:1/-1;max-width:none"><div class="pcap"><span class="pa">TORA PROJECT — SNooZe</span><span class="pr" data-en="Comp. / Arr." data-ja="作曲・編曲">Comp. / Arr.</span></div>
+        <iframe loading="lazy" style="width:100%" height="152" src="https://open.spotify.com/embed/track/7uj4nWBIomDoClIBOr8CWj?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
+  </div>
 </section>
+
 <!-- CINEMATIC DIVIDER -->
-<section class="cine">
-<div class="cine-bg"><img alt="ミキシングコンソール" src="assets/faders.jpg"/></div>
-<div class="wrap">
-<p class="quote r">ひとつの​音の<span class="hl">​説得力</span>に、<br/>すべてを​賭ける。</p>
-<div class="cap r">Studio Production · Tokyo / Los Angeles</div>
-</div>
+<section class="cine" style="height:min(86vh,760px);display:flex;align-items:center;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;z-index:-1">
+    <img src="assets/faders.jpg" alt="Mixing console" style="width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.05)" />
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,8,.92),rgba(7,7,8,.45) 60%,rgba(7,7,8,.7))"></div>
+  </div>
+  <div class="wrap">
+    <p class="r" style="font-weight:300;font-size:clamp(1.6rem,4.4vw,3rem);line-height:1.4;letter-spacing:-.01em;max-width:20em"
+       data-en="Betting everything on the <span style='color:var(--accent)'>conviction</span> of a single sound."
+       data-ja="ひとつの音の<span style='color:var(--accent)'>説得力</span>に、すべてを賭ける。">Betting everything on the <span style="color:var(--accent)">conviction</span> of a single sound.</p>
+  </div>
 </section>
+
 <!-- CHANNEL -->
 <section class="sec chan" id="channel">
-<div class="wrap">
-<div class="sec-head r">
-<span class="eyebrow">Channel · @itsGINPEI</span>
-<h2>制作の​過程を、<br/>そのまま​届ける。</h2>
-<p class="lead">ダンスミュージック制作の​テクニックと​考え方を、​現場のまま​YouTubeで​発信。​海外の​サウンドを​志向する​制作者へ​向けた​チュートリアルを​軸に​しています。</p>
-</div>
-<div class="ytfeature r">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/videoseries?list=UUoex1y5-GkA7Y5_iRGmR3KQ&amp;rel=0" title="GINPEI 最新動画"></iframe>
-</div>
-<div class="ytcap r">最新の​アップロードを​自動表示</div>
-<div class="ytgrid r" id="ytgrid"></div>
-<div class="stats r">
-<div class="stat"><b>29,900+</b><span>Subscribers</span></div>
-<div class="stat"><b>2.1M</b><span>Total Views</span></div>
-<div class="stat"><b>56</b><span>Films</span></div>
-<div class="stat"><b>2019</b><span>Since</span></div>
-</div>
-<a class="btn btn-p r" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
-<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"></path></svg>
-      YouTubeチャンネルへ​
+  <div class="wrap">
+    <div class="sec-head r">
+      <span class="eyebrow">Channel · @itsGINPEI</span>
+      <h2 class="disp" data-en="The process, shared" data-ja="制作の過程を、そのまま">The process, shared</h2>
+      <p class="lead" data-en="Dance-music production technique and thinking, shared straight from the studio on YouTube — tutorials for producers chasing a Western sound." data-ja="ダンスミュージック制作のテクニックと考え方を、現場のままYouTubeで発信。海外のサウンドを志向する制作者へ向けたチュートリアルを軸にしています。">Dance-music production technique and thinking, shared straight from the studio on YouTube — tutorials for producers chasing a Western sound.</p>
+    </div>
+    <div class="ytfeature r">
+      <iframe loading="lazy" src="https://www.youtube.com/embed/videoseries?list=UUoex1y5-GkA7Y5_iRGmR3KQ&rel=0" title="GINPEI latest videos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="ytcap r" data-en="Always showing the channel's newest uploads" data-ja="チャンネルの最新アップロードを常に表示">Always showing the channel's newest uploads</div>
+    <div class="ytgrid r" id="ytgrid"></div>
+    <div class="stats r">
+      <div class="stat"><b>29,900+</b><span>Subscribers</span></div>
+      <div class="stat"><b>2.1M</b><span data-en="Total Views" data-ja="累計再生">Total Views</span></div>
+      <div class="stat"><b>56</b><span>Films</span></div>
+      <div class="stat"><b>2019</b><span>Since</span></div>
+    </div>
+    <a class="btn btn-p r" href="https://www.youtube.com/@itsGINPEI" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.8-.5-5.6a2.9 2.9 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.4a2.9 2.9 0 0 0-2 2C1 8.2 1 12 1 12s0 3.8.5 5.6a2.9 2.9 0 0 0 2 2C5.3 20 12 20 12 20s6.7 0 8.5-.4a2.9 2.9 0 0 0 2-2C23 15.8 23 12 23 12ZM9.8 15.3V8.7l5.7 3.3-5.7 3.3Z"/></svg>
+      <span data-en="Visit the channel" data-ja="YouTubeチャンネルへ">Visit the channel</span>
     </a>
-</div>
+  </div>
 </section>
+
 <!-- ABOUT -->
 <section class="sec about" id="about">
-<div class="wrap">
-<div class="sec-head r">
-<span class="eyebrow">About</span>
-<h2>GINPEI</h2>
-</div>
-<div class="about-grid">
-<div class="about-fig r">
-<img alt="GINPEI ポートレート" height="588" src="assets/ginpei-portrait.jpg" width="652"/>
-<span class="tag">Studio · Tokyo</span>
-</div>
-<div class="r">
-<div class="specsheet">
-<div class="srow"><span class="sl">Based</span><span class="sv">東京, 日本</span></div>
-<div class="srow"><span class="sl">Field</span><span class="sv">作曲 · 編曲 · プロデュース</span></div>
-<div class="srow"><span class="sl">Genre</span><span class="sv">Dance / Pop<small>海外志向の​ダンス／ポップ</small></span></div>
-<div class="srow"><span class="sl">Agency</span><span class="sv">CoWRITE<small>代表：杉山勝彦​（日本レコード大賞 作曲賞・優秀作品賞）</small></span></div>
-<div class="srow"><span class="sl">Roots</span><span class="sv">18歳で​DJ、​20歳から​楽曲制作<small>クラブの​フロアで​磨いた​「鳴らした​瞬間に​伝わる​音」</small></span></div>
-</div>
-</div>
-</div>
-</div>
+  <div class="wrap">
+    <div class="sec-head r"><span class="eyebrow">About</span><h2 class="disp" style="font-family:var(--bebas);text-transform:none;letter-spacing:-.02em">GINPEI</h2></div>
+    <div class="about-grid">
+      <div class="about-fig r">
+        <img src="assets/ginpei-portrait.jpg" alt="GINPEI portrait" width="652" height="588" />
+        <span class="ftag">Studio · Tokyo</span>
+      </div>
+      <div class="r">
+        <div class="specsheet">
+          <div class="srow"><span class="sl">Based</span><span class="sv" data-en="Tokyo, Japan" data-ja="東京, 日本">Tokyo, Japan</span></div>
+          <div class="srow"><span class="sl">Field</span><span class="sv" data-en="Composition · Arrangement · Production" data-ja="作曲・編曲・プロデュース">Composition · Arrangement · Production</span></div>
+          <div class="srow"><span class="sl">Genre</span><span class="sv" data-en="Dance / Pop<small>Western-leaning</small>" data-ja="Dance / Pop<small>海外志向のダンス／ポップ</small>">Dance / Pop<small>Western-leaning</small></span></div>
+          <div class="srow"><span class="sl">Agency</span><span class="sv" data-en="CoWRITE<small>Rep. Katsuhiko Sugiyama — Japan Record Award winner</small>" data-ja="CoWRITE<small>代表：杉山勝彦（日本レコード大賞 作曲賞・優秀作品賞）</small>">CoWRITE<small>Rep. Katsuhiko Sugiyama — Japan Record Award winner</small></span></div>
+          <div class="srow"><span class="sl">Roots</span><span class="sv" data-en="DJ at 18, producing from 20<small>The sound that lands the instant it hits the floor.</small>" data-ja="18歳でDJ、20歳から楽曲制作<small>鳴らした瞬間にフロアへ伝わる音を。</small>">DJ at 18, producing from 20<small>The sound that lands the instant it hits the floor.</small></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
 <!-- CONNECT -->
 <section class="connect" id="connect">
-<div class="wrap">
-<div class="sec-head r">
-<span class="eyebrow">Connect</span>
-<h2>つながる。</h2>
-</div>
-<div class="clinks r">
-<a class="clink" href="https://www.youtube.com/@itsGINPEI" rel="noopener" target="_blank">
-<div><div class="cl-l">YouTube</div><div class="cl-h">@itsGINPEI</div></div>
-<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
-<a class="clink" href="https://x.com/itsGINPEI" rel="noopener" target="_blank">
-<div><div class="cl-l">X (Twitter)</div><div class="cl-h">@itsGINPEI</div></div>
-<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
-<a class="clink" href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">
-<div><div class="cl-l">Instagram</div><div class="cl-h">@itsginpei</div></div>
-<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"></path></svg></a>
-</div>
-<p class="cfoot r">楽曲制作・コライト・タイアップの​ご相談は、<a href="https://www.instagram.com/itsginpei/" rel="noopener" target="_blank">​Instagram</a> の​DMから。</p>
-</div>
+  <div class="wrap">
+    <div class="sec-head r"><span class="eyebrow">Connect</span><h2 class="disp" data-en="Get in touch" data-ja="つながる">Get in touch</h2></div>
+    <div class="clinks r">
+      <a class="clink" href="https://www.youtube.com/@itsGINPEI" target="_blank" rel="noopener"><div><div class="cl-l">YouTube</div><div class="cl-h">@itsGINPEI</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="clink" href="https://x.com/itsGINPEI" target="_blank" rel="noopener"><div><div class="cl-l">X (Twitter)</div><div class="cl-h">@itsGINPEI</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+      <a class="clink" href="https://www.instagram.com/itsginpei/" target="_blank" rel="noopener"><div><div class="cl-l">Instagram</div><div class="cl-h">@itsginpei</div></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+    </div>
+    <p class="cfoot r" data-en="For composition, co-writes &amp; sync, reach out via <a href='https://www.instagram.com/itsginpei/' target='_blank' rel='noopener'>Instagram</a> DM." data-ja="楽曲制作・コライト・タイアップのご相談は、<a href='https://www.instagram.com/itsginpei/' target='_blank' rel='noopener'>Instagram</a> のDMから。">For composition, co-writes &amp; sync, reach out via <a href="https://www.instagram.com/itsginpei/" target="_blank" rel="noopener">Instagram</a> DM.</p>
+  </div>
 </section>
+
 <footer class="footer">
-<div class="wrap">
-<div class="fb"><img alt="" height="26" src="assets/logo-mark.png" width="26"/><span>GINPEI</span></div>
-<div class="fm">© 2026 GINPEI · Composer / Arranger / Producer · Tokyo</div>
-</div>
+  <div class="wrap">
+    <div class="fb"><img src="assets/logo-mark.png" alt="" width="26" height="26" /><span>GINPEI</span></div>
+    <div class="fm">© 2026 GINPEI · Composer / Arranger / Producer · Tokyo</div>
+  </div>
 </footer>
+
 <script>
 (function(){
+  /* nav + menu */
   var nav=document.getElementById('nav');
   var onScroll=function(){nav.classList.toggle('s',window.scrollY>40)};
   onScroll();window.addEventListener('scroll',onScroll,{passive:true});
@@ -448,15 +475,31 @@ section{position:relative}
   var tog=function(o){b.classList.toggle('o',o);m.classList.toggle('o',o);b.setAttribute('aria-expanded',o?'true':'false');document.body.style.overflow=o?'hidden':''};
   b.addEventListener('click',function(){tog(!m.classList.contains('o'))});
   m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){tog(false)})});
+
+  /* language toggle (EN default) */
+  var btns=document.querySelectorAll('.lang button');
+  function setLang(l){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-en]').forEach(function(el){
+      var v=el.getAttribute('data-'+l); if(v!=null) el.innerHTML=v;
+    });
+    btns.forEach(function(x){x.classList.toggle('on',x.getAttribute('data-lang')===l)});
+    try{localStorage.setItem('ginpei_lang',l)}catch(e){}
+  }
+  btns.forEach(function(x){x.addEventListener('click',function(){setLang(x.getAttribute('data-lang'))})});
+  var saved='en'; try{saved=localStorage.getItem('ginpei_lang')||'en'}catch(e){}
+  if(saved==='ja') setLang('ja');
+
+  /* reveal */
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
   var items=document.querySelectorAll('.r');
   if(reduce||!('IntersectionObserver' in window)){items.forEach(function(e){e.classList.add('in')})}
-  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var sib=Array.prototype.slice.call(e.target.parentNode.querySelectorAll(':scope>.r'));var i=sib.indexOf(e.target);e.target.style.transitionDelay=(Math.max(0,i)*80)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var s=Array.prototype.slice.call(e.target.parentNode.querySelectorAll(':scope>.r'));var i=s.indexOf(e.target);e.target.style.transitionDelay=(Math.max(0,i)*80)+'ms';e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -7% 0px'});
   items.forEach(function(e){io.observe(e)})}
 })();
 </script>
 <script>
-/* latest videos — always pulls the channel's newest uploads (RSS via CORS proxy); the playlist embed above is the no-dependency fallback */
+/* latest videos — always the channel's newest uploads (RSS via CORS proxy); playlist embed above is the no-dependency base */
 (function(){
   var grid=document.getElementById('ytgrid'); if(!grid) return;
   var feed='https://www.youtube.com/feeds/videos.xml?channel_id=UCoex1y5-GkA7Y5_iRGmR3KQ';
